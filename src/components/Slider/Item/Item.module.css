@@ -1,0 +1,15 @@
+.Item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 100%;
+  color: #00008b;
+  margin: 0 15px;
+  font-size: 24px;
+}
+
+.image {
+  width: 190px;
+}

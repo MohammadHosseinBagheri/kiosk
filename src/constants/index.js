@@ -1,0 +1,1 @@
+export const bestPrograms = 'بهترین برنامه ها'

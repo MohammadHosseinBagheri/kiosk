@@ -1,6 +1,11 @@
+import Slider from './../Slider/Slider'
 
 const HomeContentContainer = () => {
-  return <div>صفحه اصلی</div>;
+  return (
+    <div>
+      <Slider />
+    </div>
+  );
 };
 
 export default HomeContentContainer;
