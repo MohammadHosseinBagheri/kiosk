@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
+  { width: 300, itemsToShow: 2 },
   { width: 550, itemsToShow: 3 },
   { width: 768, itemsToShow: 4 },
   { width: 1000, itemsToShow: 5 },
@@ -21,7 +22,7 @@ const Slider = (props) => {
     <div className={classes.Slider}>
       <h1 className={classes.sliderHeader}>{bestPrograms}</h1>
       <div className={classes.sliderContent}>
-        <Carousel breakPoints={breakPoints} isRTL={true}>
+        <Carousel breakPoints={breakPoints} isRTL={true} pagination={false}>
           {products.map((product) => (
             <Item key={product.id} {...product} />
           ))}
