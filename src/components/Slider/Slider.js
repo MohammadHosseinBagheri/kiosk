@@ -31,6 +31,9 @@ const Slider = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({ products: state.products });
+const getProducts = (products) =>
+  Object.keys(products).map((id) => products[id]);
+
+const mapStateToProps = (state) => ({ products: getProducts(state.products) });
 
 export default connect(mapStateToProps)(Slider);
