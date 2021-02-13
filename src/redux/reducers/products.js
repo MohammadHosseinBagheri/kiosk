@@ -1,12 +1,12 @@
 import * as types from "./../../constants/actionTypes";
 
 const products = (state = {}, action) => {
-  switch (action.type) {
+    // console.log(state, action)
+    switch (action.type) {
     case types.RECEIVE_PRODUCTS:
-      return {
-        ...state,
-        ...action.products,
-      };
+      return action.products
+    ;
+    // return state;
 
     default:
       return state;

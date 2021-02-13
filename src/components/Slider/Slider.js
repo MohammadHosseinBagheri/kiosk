@@ -4,6 +4,7 @@ import Carousel from "react-elastic-carousel";
 import classes from "./Slider.module.css";
 import img from "./../../assets/icon/app.png";
 import { bestPrograms } from "./../../constants";
+import { connect } from "react-redux";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -13,29 +14,16 @@ const breakPoints = [
   { width: 1200, itemsToShow: 6 },
 ];
 
-const Slider = () => {
-  const items = [
-    { id: 1, title: "item #1", src: `${img}` },
-    { id: 2, title: "item #2", src: `${img}` },
-    { id: 3, title: "item #3", src: `${img}` },
-    { id: 4, title: "item #4", src: `${img}` },
-    { id: 5, title: "item #5", src: `${img}` },
-    { id: 6, title: "item #6", src: `${img}` },
-    { id: 7, title: "item #7", src: `${img}` },
-    { id: 8, title: "item #8", src: `${img}` },
-    { id: 9, title: "item #9", src: `${img}` },
-    { id: 10, title: "item #10", src: `${img}` },
-    { id: 11, title: "item #11", src: `${img}` },
-    { id: 12, title: "item #12", src: `${img}` },
-  ];
+const Slider = (props) => {
+  const { products } = props;
 
   return (
     <div className={classes.Slider}>
       <h1 className={classes.sliderHeader}>{bestPrograms}</h1>
-      <div className={classes.sliderContent} >
+      <div className={classes.sliderContent}>
         <Carousel breakPoints={breakPoints} isRTL={true}>
-          {items.map((item) => (
-            <Item key={item.id} title={item.title} src={item.src} />
+          {products.map((product) => (
+            <Item key={product.id} {...product} />
           ))}
         </Carousel>
       </div>
@@ -43,4 +31,6 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+const mapStateToProps = (state) => ({ products: state.products });
+
+export default connect(mapStateToProps)(Slider);
