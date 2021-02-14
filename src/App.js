@@ -2,6 +2,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import shop from "./api/shop";
 import { receiveProducts } from "./redux/actions";
 import Home from "./routes/home";
+import About from "./routes/about";
 import "./styles/index.scss";
 import { connect } from "react-redux";
 import { useEffect } from "react";
@@ -16,6 +17,7 @@ const App = (props) => {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
       </Switch>
     </Router>
   );
