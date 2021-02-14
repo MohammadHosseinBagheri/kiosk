@@ -1,14 +1,25 @@
-import SideDrawer from '../components/navigation/sideDrawer/sideDrawer'
-import Toolbar from './../components/navigation/toolbar'
+import React, { useState } from "react";
+import SideDrawer from "../components/navigation/sideDrawer/sideDrawer";
+import Toolbar from "./../components/navigation/toolbar";
 
-const layout = (porps) => {
-    return (
-        <>
-            <Toolbar />
-            <SideDrawer/>
-            <main style={{marginTop: '72px'}} >{porps.children}</main>
-        </>
-    )
-}
+const Layout = (porps) => {
+  const [showSideDrawer, setShowSideDrawer] = useState(false);
 
-export default layout
+  const sideDrawerClosedHandler = () => {
+    setShowSideDrawer(false);
+  };
+
+
+  return (
+    <>
+      <Toolbar />
+      <SideDrawer
+        closed={sideDrawerClosedHandler}
+        open={showSideDrawer}
+      />
+      <main style={{ marginTop: "72px" }}>{porps.children}</main>
+    </>
+  );
+};
+
+export default Layout;

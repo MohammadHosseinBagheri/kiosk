@@ -17,3 +17,11 @@
         display: none;
     }
 }
+
+.sideDrawerOpen {
+    transform: translateX(0);
+}
+
+.sideDrawerClose {
+    transform: translateX(-100%);
+}
