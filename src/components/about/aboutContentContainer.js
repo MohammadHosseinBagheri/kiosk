@@ -1,7 +1,7 @@
-const about = () => {
+const AboutContentContainer = () => {
     return(
         <div>صفحه درباره ما</div>
     )
 }
 
-export default about
+export default AboutContentContainer
