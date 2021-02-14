@@ -5,7 +5,7 @@ import NavigationItem from './navigationItem/navigationItem'
 const navigationItems = () => {
     return(
         <ul>
-            <NavigationItem link='/'>{home}</NavigationItem>
+            <NavigationItem link='/' exact>{home}</NavigationItem>
         </ul>
     )
 }

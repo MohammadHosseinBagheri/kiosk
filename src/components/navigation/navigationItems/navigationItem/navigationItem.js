@@ -1,12 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const navigationItem = () => {
+const navigationItem = (props) => {
+    const { link, exact, children } = props
     return (
         <li>
-            <NavLink>
-
-            </NavLink>
+            <NavLink
+                to={link}
+                exact={exact}
+            >{children}</NavLink>
         </li>
     )
 }
