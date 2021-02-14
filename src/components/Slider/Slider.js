@@ -15,8 +15,7 @@ const breakPoints = [
 
 const Slider = (props) => {
   const { products } = props;
-  let showArrow = true;
-  showArrow = window.innerWidth < 768 ? false : true;
+  let showArrow = window.innerWidth < 768 ? false : true;
   return (
     <div className='slider'>
       <h1 className='sliderHeader'>{bestPrograms}</h1>
