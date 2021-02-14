@@ -6,10 +6,12 @@
   flex-flow: column;
   align-items: center;
   height: 100%;
+  text-align: right;
+  padding-top: 10px;
 }
 
 @media (min-width: 500px) {
   .navigationItems {
-    flex-flow: row;
+    flex-flow: row-reverse;
   }
 }

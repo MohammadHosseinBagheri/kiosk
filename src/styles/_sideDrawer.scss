@@ -3,7 +3,7 @@
   width: 280px;
   max-width: 70%;
   height: 100%;
-  left: 0;
+  right: 0;
   top: 0;
   z-index: 200;
   background-color: white;
@@ -26,5 +26,5 @@
 }
 
 .sideDrawerClose {
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }

@@ -3,5 +3,8 @@
     .navLeft {
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
     }
 }
