@@ -6,6 +6,9 @@ import About from "./routes/about";
 import "./styles/index.scss";
 import { connect } from "react-redux";
 import { useEffect } from "react";
+import Layout from './hoc/layout'
+
+
 
 const App = (props) => {
   useEffect(() => {
@@ -14,12 +17,16 @@ const App = (props) => {
     });
   }, []);
   return (
+
     <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+        </Switch>
+      </Layout>
     </Router>
+
   );
 };
 
