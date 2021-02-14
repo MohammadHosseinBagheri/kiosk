@@ -3,7 +3,7 @@ import NavigationItems from './navigationItems/navigationItems'
 
 const toolbar = () => {
     return (
-        <header>
+        <header className='toolbar'>
             <div>
                 {/* ورود */}
             </div>
