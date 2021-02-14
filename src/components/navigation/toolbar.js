@@ -1,7 +1,7 @@
 import React from 'react'
 import NavigationItems from './navigationItems/navigationItems'
 import NavLeft from './navLeft/navLeft'
-import DrawerToggle from './drawerToggle/drawerToggle'
+import DrawerToggle from './sideDrawer/drawerToggle/drawerToggle'
 
 const toolbar = () => {
     return (
