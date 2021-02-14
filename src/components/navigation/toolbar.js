@@ -1,15 +1,13 @@
 import React from 'react'
 import NavigationItems from './navigationItems/navigationItems'
-
+import NavLeft from './navLeft/navLeft'
 
 const toolbar = () => {
     return (
         <header className='toolbar'>
-            {/* <div>
-                ورود
-            </div> */}
+            <NavLeft />
             <nav>
-                <NavigationItems />                
+                <NavigationItems />
             </nav>
         </header>
     )
