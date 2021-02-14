@@ -1,7 +1,7 @@
-import AboutContentContainer from './../components/about/aboutContentContainer'
+import AboutContentContainer from "./../components/about/aboutContentContainer";
 
 const AboutContainer = () => {
-    return <AboutContentContainer />
-}
+  return <AboutContentContainer />;
+};
 
-export default AboutContainer
+export default AboutContainer;

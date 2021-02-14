@@ -9,14 +9,10 @@ const Layout = (porps) => {
     setShowSideDrawer(false);
   };
 
-
   return (
     <>
       <Toolbar />
-      <SideDrawer
-        closed={sideDrawerClosedHandler}
-        open={showSideDrawer}
-      />
+      <SideDrawer closed={sideDrawerClosedHandler} open={showSideDrawer} />
       <main style={{ marginTop: "72px" }}>{porps.children}</main>
     </>
   );
