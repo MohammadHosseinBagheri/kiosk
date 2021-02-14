@@ -13,5 +13,6 @@
 @media (min-width: 500px) {
   .navigationItems {
     flex-flow: row-reverse;
+    padding-top: 0;
   }
 }
