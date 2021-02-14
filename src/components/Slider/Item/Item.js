@@ -1,10 +1,9 @@
-import classes from "./Item.module.css";
 import img from "./../../../assets/icon/app.png";
 
 const Item = (props) => {
   return (
-    <div className={classes.Item}>
-      <img className={classes.image} src={img} />
+    <div className='sliderItem'>
+      <img className='sliderImage' src={img} />
       <p>{props.title}</p>
     </div>
   );

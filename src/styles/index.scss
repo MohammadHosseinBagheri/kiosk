@@ -1,9 +1,10 @@
 @import "fonts";
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "./slider";
+@import "./item";
 
 body {
-  font-family: iranyekanwebmedium ;
+  font-family: iranyekanwebmedium;
 }
 * {
   padding: 0px;

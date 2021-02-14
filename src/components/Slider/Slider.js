@@ -1,9 +1,7 @@
 import React from "react";
-import Item from "./Item/Item";
+import Item from "./item/item";
 import Carousel from "react-elastic-carousel";
-import classes from "./Slider.module.css";
-import img from "./../../assets/icon/app.png";
-import { bestPrograms } from "./../../constants";
+import { bestPrograms } from "../../constants";
 import { connect } from "react-redux";
 
 const breakPoints = [
@@ -20,9 +18,9 @@ const Slider = (props) => {
   let showArrow = true;
   showArrow = window.innerWidth < 768 ? false : true;
   return (
-    <div className={classes.Slider}>
-      <h1 className={classes.sliderHeader}>{bestPrograms}</h1>
-      <div className={classes.sliderContent}>
+    <div className='slider'>
+      <h1 className='sliderHeader'>{bestPrograms}</h1>
+      <div className='sliderContent'>
         <Carousel
           breakPoints={breakPoints}
           isRTL={true}
