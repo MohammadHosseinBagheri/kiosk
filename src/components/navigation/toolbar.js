@@ -3,10 +3,10 @@ import NavigationItems from "./navigationItems/navigationItems";
 import NavLeft from "./navLeft/navLeft";
 import DrawerToggle from "./sideDrawer/drawerToggle/drawerToggle";
 
-const toolbar = () => {
+const toolbar = (props) => {
   return (
     <header className="toolbar">
-      <DrawerToggle />
+      <DrawerToggle clicked={props.drawerToggleClicked}/>
       <NavLeft />
       <nav>
         <NavigationItems />

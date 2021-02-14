@@ -1,8 +1,8 @@
 import { Button } from "react-bootstrap";
 
-const DrawerToggle = () => {
+const DrawerToggle = (props) => {
   return (
-    <Button style={{ display: "none" }}>
+    <Button className='drawerToggle' onClick={props.clicked}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
