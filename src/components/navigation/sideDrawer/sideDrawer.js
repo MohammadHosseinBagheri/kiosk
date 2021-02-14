@@ -1,6 +1,5 @@
 import NavigationItems from "../navigationItems/navigationItems";
 import NavLeft from "../navLeft/navLeft";
-import DrawerToggle from "./drawerToggle/drawerToggle";
 
 const sideDrawer = (props) => {
   let attachedClass = "sideDrawerClose";
@@ -12,7 +11,6 @@ const sideDrawer = (props) => {
 
   return (
     <div className={`sideDrawer ${attachedClass}`}>
-      <DrawerToggle />
       <NavLeft />
       <NavigationItems />
     </div>

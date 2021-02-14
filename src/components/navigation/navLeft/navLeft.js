@@ -1,9 +1,9 @@
 import { Button } from "react-bootstrap";
 import { logIn } from "./../../../constants";
 
-const NavLeft = () => {
+const NavLeft = (props) => {
   return (
-    <div>
+    <div className={props.className}>
       <Button variant="secondary">
         <svg
           xmlns="http://www.w3.org/2000/svg"
