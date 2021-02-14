@@ -3,7 +3,7 @@ import { logIn } from "./../../../constants";
 
 const NavLeft = (props) => {
   return (
-    <div className={props.className}>
+    <div className={[props.className, "navLeft"].join(" ")}>
       <Button variant="secondary">
         <svg
           xmlns="http://www.w3.org/2000/svg"

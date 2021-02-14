@@ -7,7 +7,9 @@ const toolbar = (props) => {
   return (
     <header className="toolbar">
       <DrawerToggle clicked={props.drawerToggleClicked} />
-      <NavLeft className="desktopOnly" />
+      <div className="desktopOnly">
+        <NavLeft />
+      </div>
       <nav className="desktopOnly">
         <NavigationItems />
       </nav>
