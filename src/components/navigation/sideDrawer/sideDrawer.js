@@ -4,7 +4,7 @@ import Backdrop from "./../../ui/backdrop";
 
 const sideDrawer = (props) => {
   let attachedClass = "sideDrawerClose";
-  if (props.open) {
+  if () {
     attachedClass = "sideDrawerOpen";
   } else {
     attachedClass = "sideDrawerClose";
@@ -12,7 +12,7 @@ const sideDrawer = (props) => {
 
   return (
     <>
-      <Backdrop show={props.open} hide={props.closed} />
+      <Backdrop show={ } hide={ } />
       <div className={`sideDrawer ${attachedClass}`}>
         <NavLeft />
         <NavigationItems />

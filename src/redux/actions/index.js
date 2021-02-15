@@ -9,6 +9,6 @@ export const sideDrawerClosed = () => ({
   type: types.SIDE_DRAWER_CLOSED
 })
 
-export const sideDrawerClosed = () => ({
+export const sideDrawerToggle = () => ({
   type: types.SIDE_DRAWER_TOGGLE
 })
