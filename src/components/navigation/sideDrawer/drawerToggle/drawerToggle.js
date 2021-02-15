@@ -1,8 +1,10 @@
 import { Button } from "react-bootstrap";
+import {connect } from 'react-redux'
+import {sideDrawerToggle} from './../../../../redux/actions'
 
 const DrawerToggle = (props) => {
   return (
-    <Button className='drawerToggle' onClick={props.clicked}>
+    <Button className='drawerToggle' onClick={() => {props.dispatch(sideDrawerToggle)}}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -20,4 +22,4 @@ const DrawerToggle = (props) => {
   );
 };
 
-export default DrawerToggle;
+export default connect()(DrawerToggle);
