@@ -1,5 +1,4 @@
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import shop from "./api/shop";
 import { receiveProducts } from "./redux/actions";
 import Home from "./routes/home";
 import About from "./routes/about";
@@ -10,9 +9,7 @@ import Layout from "./hoc/layout";
 
 const App = (props) => {
   useEffect(() => {
-    shop.getProducts((products) => {
-      props.dispatch(receiveProducts(products));
-    });
+      props.dispatch(receiveProducts());
   }, []);
   return (
     <Router>
