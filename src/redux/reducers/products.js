@@ -4,7 +4,7 @@ const products = (state = [], action) => {
 
   const { type, products } = action
 
-  switch (action.type) {
+  switch (type) {
 
     case types.RECEIVE_PRODUCTS:
       return products;
@@ -18,7 +18,7 @@ const products = (state = [], action) => {
       }, [])
       return bestProducts
 
-    case types.RECEIVE_BEST_PRODUCTS:
+    case types.RECEIVE_NEWEST_PRODUCTS:
       const newestProducts = products.reduce((obj, product) => {
         if (product.categori === categori.newest) {
           obj.push(product)
