@@ -1,39 +1,59 @@
 import * as types from "./../../constants/actionTypes";
+import { best, newest } from './../../constants'
 
-const products = (state = [], action) => {
+const allProducts = (state = [], action) => {
 
   const { type, products } = action
 
   switch (type) {
-
     case types.RECEIVE_PRODUCTS:
       return products;
+    default:
+      return state;
+  }
+};
 
+const bestProducts = (state = [], action) => {
+
+  const { type, products } = action
+
+  switch (type) {
     case types.RECEIVE_BEST_PRODUCTS:
       const bestProducts = products.reduce((obj, product) => {
-        if (product.categori === categori.best) {
+        if (product.categori === best) {
           obj.push(product)
         }
         return obj
       }, [])
       return bestProducts
 
-    case types.RECEIVE_NEWEST_PRODUCTS:
-      const newestProducts = products.reduce((obj, product) => {
-        if (product.categori === categori.newest) {
-          obj.push(product)
-        }
-        return obj
-      }, [])
-      return newestProducts
-
-
     default:
       return state;
   }
 };
 
-export default products;
+const newestProducts = (state = [], action) => {
+
+  const { type, products } = action
+
+  switch (type) {
+    case types.RECEIVE_NEWEST_PRODUCTS:
+      const newestProducts = products.reduce((obj, product) => {
+        if (product.categori === newest) {
+          obj.push(product)
+        }
+        return obj
+      }, [])
+      return newestProducts
+    default:
+      return state;
+  }
+};
+
+
+
+
+export { allProducts, bestProducts, newestProducts };
 
 
 

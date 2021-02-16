@@ -1,27 +1,34 @@
 import Slider from "./../slider/slider";
-import useFetch from "../../hooks";
 import { connect } from 'react-redux'
-
+import { receiveBestProducts, receiveNewestProducts } from './../../redux/actions'
+import { useEffect } from "react";
 
 
 const HomeContentContainer = (props) => {
 
-  const { products } = props
+  const { products, bestProducts, newestProducts } = props
 
+  useEffect(() => {
+    props.dispatch(receiveBestProducts(products))
+    props.dispatch(receiveNewestProducts(products))
+  })
 
   return (
     <div>
-      <Slider products={products} />
-      <Slider products={products} />
+      <Slider products={bestProducts} />
+      <Slider products={newestProducts} />
     </div>
   );
 };
 
 
-const getProducts = (products) =>
-  Object.keys(products).map((id) => products[id]);
-
-const mapStateToProps = (state) => ({ products: getProducts(state.products) });
+const mapStateToProps = (state) => (
+  {
+    products: state.allProducts,
+    bestProducts: state.bestProducts,
+    newestProducts: state.newestProducts
+  }
+)
 
 
 export default connect(mapStateToProps)(HomeContentContainer);

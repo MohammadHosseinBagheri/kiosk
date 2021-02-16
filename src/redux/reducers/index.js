@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import products from "./products";
+import { allProducts, newestProducts, bestProducts } from "./products";
 import sideDrawer from './sideDrawer'
 
 export default combineReducers({
-  products,
+  allProducts,newestProducts,bestProducts,
   showsideDrawer: sideDrawer
 });
