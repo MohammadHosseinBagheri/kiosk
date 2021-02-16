@@ -11,7 +11,7 @@ const HomeContentContainer = (props) => {
   useEffect(() => {
     props.dispatch(receiveBestProducts(products))
     props.dispatch(receiveNewestProducts(products))
-  })
+  },[])
 
   return (
     <div>
