@@ -6,11 +6,18 @@ import "./styles/index.scss";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import Layout from "./hoc/layout";
+import useFetch from "./hooks";
 
 const App = (props) => {
+
+  const { data } = useFetch(
+    "https://cors-anywhere.herokuapp.com/https://still-headland-88471.herokuapp.com/api/applications/get"
+  )
+
   useEffect(() => {
-      props.dispatch(receiveProducts());
-  }, []);
+    props.dispatch(receiveProducts(data));
+  });
+  
   return (
     <Router>
       <Layout>
