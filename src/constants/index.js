@@ -2,7 +2,7 @@ const home = "خانه";
 const about = "درباره ما";
 const logIn = "ورود";
 const best = "بهترین";
-const theNewest = "جدیدترین";
+const newest = "جدیدترین";
 const FetchState = {
   error: false,
   success: false,
@@ -10,4 +10,4 @@ const FetchState = {
   data: [],
 };
 
-export { best, theNewest, FetchState, logIn, about, home };
+export { best, newest, FetchState, logIn, about, home };
