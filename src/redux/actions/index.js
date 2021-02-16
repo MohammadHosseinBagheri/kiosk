@@ -12,3 +12,13 @@ export const sideDrawerClosed = () => ({
 export const sideDrawerToggle = () => ({
   type: types.SIDE_DRAWER_TOGGLE
 })
+
+export const receiveBestProducts = products => ({
+  type: types.RECEIVE_BEST_PRODUCTS,
+  products
+})
+
+export const receiveNewestProducts = products => ({
+  type: types.RECEIVE_NEWEST_PRODUCTS,
+  products
+})
