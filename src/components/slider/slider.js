@@ -1,8 +1,6 @@
 import React from "react";
 import Item from "./item/item";
 import Carousel from "react-elastic-carousel";
-import { bestPrograms } from "../../constants";
-import { connect } from "react-redux";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -14,12 +12,11 @@ const breakPoints = [
 ];
 
 const Slider = (props) => {
-  const { products } = props;
-  console.log(products)
+  const { products } = props
   let showArrow = window.innerWidth < 768 ? false : true;
   return (
     <div className="slider">
-      <h1 className="sliderHeader">{bestPrograms}</h1>
+      <h1 className="sliderHeader"></h1>
       <div className="sliderContent">
         <Carousel
           breakPoints={breakPoints}
@@ -36,9 +33,4 @@ const Slider = (props) => {
   );
 };
 
-const getProducts = (products) =>
-  Object.keys(products).map((id) => products[id]);
-
-const mapStateToProps = (state) => ({ products: getProducts(state.products) });
-
-export default connect(mapStateToProps)(Slider);
+export default Slider;

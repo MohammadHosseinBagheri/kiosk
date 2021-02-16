@@ -1,16 +1,27 @@
 import Slider from "./../slider/slider";
 import useFetch from "../../hooks";
+import { connect } from 'react-redux'
 
-const HomeContentContainer = () => {
-  const { error, success, data, isFetching } = useFetch(
-    "https://jsonplaceholder.typicode.com/posts"
-  );
-  // console.log(error, success, data, isFetching);
+
+
+const HomeContentContainer = (props) => {
+
+  const { products } = props
+
+
   return (
     <div>
-      <Slider />
+      <Slider products={products} />
+      <Slider products={products} />
     </div>
   );
 };
 
-export default HomeContentContainer;
+
+const getProducts = (products) =>
+  Object.keys(products).map((id) => products[id]);
+
+const mapStateToProps = (state) => ({ products: getProducts(state.products) });
+
+
+export default connect(mapStateToProps)(HomeContentContainer);
