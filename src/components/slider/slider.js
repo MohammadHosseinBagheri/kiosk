@@ -15,6 +15,7 @@ const breakPoints = [
 
 const Slider = (props) => {
   const { products } = props;
+  console.log(products)
   let showArrow = window.innerWidth < 768 ? false : true;
   return (
     <div className="slider">
@@ -26,8 +27,8 @@ const Slider = (props) => {
           pagination={false}
           showArrows={showArrow}
         >
-          {products.map((product) => (
-            <Item key={product.id} {...product} />
+          {products.map(product => (
+            <Item key={product._id} {...product} />
           ))}
         </Carousel>
       </div>
