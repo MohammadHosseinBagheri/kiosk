@@ -19,6 +19,7 @@
     "sass": "^1.32.7",
     "scss": "^0.2.4",
     "styled-components": "^5.2.1",
+    "swiper": "^6.4.14",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
