@@ -11,13 +11,12 @@ const Slider = (props) => {
   const { products } = props
 
   const categori = products.length > 0
-  ? products[0].categori : null
+    ? products[0].categori : null
 
   SwiperCore.use([Navigation])
 
   const swiper = products.length > 0
     ? <Swiper
-      className='slider'
       navigation
       dir='rtl'
       spaceBetween={10}
@@ -52,8 +51,8 @@ const Slider = (props) => {
     : null
 
   return (
-    <div>
-      <h2>{categori}</h2>
+    <div className='slider'>
+      <h2 className='text-right'>{categori}</h2>
       {swiper}
     </div>
   );
