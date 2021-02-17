@@ -1,5 +1,5 @@
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { receiveProducts } from "./redux/actions";
+import { receiveProducts, receiveBestProducts, receiveNewestProducts } from "./redux/actions";
 import Home from "./routes/home";
 import About from "./routes/about";
 import "./styles/index.scss";
@@ -8,16 +8,19 @@ import { useEffect } from "react";
 import Layout from "./hoc/layout";
 import useFetch from "./hooks";
 
+
 const App = (props) => {
 
   const { data } = useFetch(
-    "https://cors-anywhere.herokuapp.com/https://still-headland-88471.herokuapp.com/api/applications/get"
+    "https://still-headland-88471.herokuapp.com/api/applications/get"
   )
 
   useEffect(() => {
     props.dispatch(receiveProducts(data));
+    props.dispatch(receiveBestProducts(props.products))
+    props.dispatch(receiveNewestProducts(props.products))
   });
-  
+
   return (
     <Router>
       <Layout>
@@ -30,4 +33,12 @@ const App = (props) => {
   );
 };
 
-export default connect()(App);
+const mapStateToProps = (state) => (
+  {
+    products: state.allProducts
+  }
+)
+
+
+
+export default connect(mapStateToProps)(App);
