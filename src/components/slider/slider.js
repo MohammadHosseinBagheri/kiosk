@@ -1,16 +1,32 @@
 import React from "react";
 import Item from "./item/item";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Navigation } from 'swiper'
+import 'swiper/swiper-bundle.css'
+
 
 const Slider = (props) => {
+
   const { products } = props
 
-  return (
-    <div className="slider">
-      <h1 className="sliderHeader"></h1>
-      <div className="sliderContent">
+  SwiperCore.use([Navigation])
 
-      </div>
-    </div>
+  const swiper = products.length > 0
+    ? <Swiper
+      navigation
+      spaceBetween={20}
+      slidesPerView={5}
+    >
+      {products.map(product => (
+        <SwiperSlide key={product._id}>
+          <Item {...product} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    : null
+
+  return (
+    <>{swiper}</>
   );
 };
 
