@@ -20,10 +20,10 @@ const Slider = (props) => {
       slidesPerView={1}
       breakpoints={{
         270: {
-          slidesPerView: 1,
+          slidesPerView: 2,
         },
         368: {
-          slidesPerView: 2,
+          slidesPerView: 3,
         },
         576: {
           slidesPerView: 4,
@@ -35,7 +35,7 @@ const Slider = (props) => {
           slidesPerView: 6,
         },
         1200: {
-          slidesPerView: 7,
+          slidesPerView: 6,
         },
       }}
     >

@@ -7,9 +7,26 @@
   width: 100%;
   color: #00008b;
   margin: 0 15px;
-  font-size: 24px;
 }
 
 .sliderImage {
-  width: 75%;
+  width: 50%;
+}
+
+.sliderTitle {
+  font-size: 14px;
+  max-height: 21px; 
+  overflow: hidden;
+  // white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 270px) {
+  .sliderImage {
+    width: 100px;
+  }
+  .sliderTitle {
+    font-size: 18px;
+    max-height: 27px;
+  }
 }
