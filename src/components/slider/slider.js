@@ -10,6 +10,9 @@ const Slider = (props) => {
 
   const { products } = props
 
+  const categori = products.length > 0
+  ? products[0].categori : null
+
   SwiperCore.use([Navigation])
 
   const swiper = products.length > 0
@@ -49,7 +52,10 @@ const Slider = (props) => {
     : null
 
   return (
-    <>{swiper}</>
+    <div>
+      <h2>{categori}</h2>
+      {swiper}
+    </div>
   );
 };
 
