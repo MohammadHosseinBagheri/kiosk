@@ -5,3 +5,12 @@
 .sliderHeader {
   text-align: right;
 }
+
+@media (max-width: 576px) {
+  .swiper-button-prev {
+    display: none;
+  } 
+  .swiper-button-next{
+    display: none;
+  }
+}
