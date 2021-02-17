@@ -16,6 +16,7 @@ const Slider = (props) => {
     ? <Swiper
       className='slider'
       navigation
+      dir='rtl'
       spaceBetween={10}
       slidesPerView={1}
       breakpoints={{
