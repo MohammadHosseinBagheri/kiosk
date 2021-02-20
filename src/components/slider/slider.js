@@ -3,7 +3,7 @@ import Item from "./item/item";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import 'swiper/swiper-bundle.css'
-
+import { Spinner } from 'react-bootstrap'
 
 
 const Slider = (props) => {
@@ -48,7 +48,7 @@ const Slider = (props) => {
         </SwiperSlide>
       ))}
     </Swiper>
-    : null
+    : <Spinner animation='border' variant='primary' />
 
   return (
     <div className='slider'>
