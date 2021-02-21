@@ -27,3 +27,8 @@ export const homeUrlParams = homeUrlParams => ({
   type: types.HOME_URL_PARAMS,
   homeUrlParams
 })
+
+export const appUrlParams = appUrlParams => ({
+  type: types.APP_URL_PARAMS,
+  appUrlParams
+})
