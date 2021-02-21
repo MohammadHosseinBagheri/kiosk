@@ -6,24 +6,24 @@
   height: 250px;
   width: 100%;
   color: #00008b;
-  margin: 0 15px;
+  margin: 0;
 }
 
 .sliderImage {
-  width: 50%;
+  width: 100%;
 }
 
 .sliderTitle {
   font-size: 14px;
-  max-height: 21px; 
+  max-height: 21px;
   overflow: hidden;
   // white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-@media (min-width: 270px) {
+@media (min-width: 640px) {
   .sliderImage {
-    width: 100px;
+    margin: 0 15px;
   }
   .sliderTitle {
     font-size: 18px;

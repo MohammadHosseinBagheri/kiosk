@@ -22,10 +22,10 @@ const Slider = (props) => {
       spaceBetween={10}
       slidesPerView={3}
       breakpoints={{
-        576: {
+        640: {
           slidesPerView: 6,
         },
-        992: {
+        1024: {
           slidesPerView: 8,
         }
       }}
