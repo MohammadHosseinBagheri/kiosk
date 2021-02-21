@@ -25,5 +25,5 @@ export const receiveNewestProducts = products => ({
 
 export const homeUrlParams = homeUrlParams => ({
   type: types.HOME_URL_PARAMS,
-  urlParams
+  homeUrlParams
 })

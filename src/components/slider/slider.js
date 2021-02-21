@@ -44,7 +44,7 @@ const Slider = (props) => {
     >
       {products.map(product => (
         <SwiperSlide key={product._id}>
-          <Item {...product} />
+          <Item product={product} />
         </SwiperSlide>
       ))}
     </Swiper>
