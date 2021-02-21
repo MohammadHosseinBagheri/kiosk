@@ -22,3 +22,8 @@ export const receiveNewestProducts = products => ({
   type: types.RECEIVE_NEWEST_PRODUCTS,
   products
 })
+
+export const homeUrlParams = urlParams => ({
+  type: types.HOME_URL_PARAMS,
+  urlParams
+})
