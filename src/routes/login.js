@@ -1,7 +1,7 @@
-import CartContainer from './../containers/cartContainer'
+import LoginContainer from './../containers/loginContainer'
 
 const Login = () => {
-    return <CartContainer />
+    return <LoginContainer />
 }
 
 export default Login
