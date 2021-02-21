@@ -9,3 +9,11 @@ export const homeUrlParams = (state={} , action) => {
     }
 }
 
+export const appUrlParams = (state={} , action) => {
+    if(action.type === types.APP_URL_PARAMS){
+        return action.appUrlParams
+    }else{
+        return state
+    }
+}
+
