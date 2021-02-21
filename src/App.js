@@ -4,6 +4,7 @@ import Home from "./routes/home";
 import About from "./routes/about";
 import Cart from './routes/cart'
 import Login from './routes/login'
+import Application from './routes/app'
 import "./styles/index.scss";
 import { connect } from "react-redux";
 import { useEffect } from "react";
@@ -31,6 +32,7 @@ const App = (props) => {
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/cart" component={Cart} />
+          <Route path="/app" component={Application} />
         </Switch>
       </Layout>
     </Router>
