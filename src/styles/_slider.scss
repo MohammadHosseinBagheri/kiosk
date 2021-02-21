@@ -1,5 +1,6 @@
 .slider {
-  margin: 60px;
+  margin: 0 60px;
+  height: 296px;
 }
 
 .sliderHeader {
@@ -9,8 +10,8 @@
 @media (max-width: 576px) {
   .swiper-button-prev {
     display: none;
-  } 
-  .swiper-button-next{
+  }
+  .swiper-button-next {
     display: none;
   }
   .slider {
