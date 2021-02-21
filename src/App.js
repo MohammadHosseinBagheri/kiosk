@@ -2,6 +2,8 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { receiveProducts, receiveBestProducts, receiveNewestProducts } from "./redux/actions";
 import Home from "./routes/home";
 import About from "./routes/about";
+import Cart from './routes/cart'
+import Login from './routes/login'
 import "./styles/index.scss";
 import { connect } from "react-redux";
 import { useEffect } from "react";
@@ -27,6 +29,8 @@ const App = (props) => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
+          <Route path="/login" component={Login} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </Layout>
     </Router>
