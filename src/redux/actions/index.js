@@ -23,7 +23,7 @@ export const receiveNewestProducts = products => ({
   products
 })
 
-export const homeUrlParams = urlParams => ({
+export const homeUrlParams = homeUrlParams => ({
   type: types.HOME_URL_PARAMS,
   urlParams
 })
