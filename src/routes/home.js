@@ -1,7 +1,14 @@
+import { useEffect } from "react";
 import HomeContainer from "../containers/homeContainer";
+import { connect } from "react-redux";
+import {homeUrlParams} from './../redux/actions'
 
-const Home = () => {
+const Home = props => {
+  const urlParams = { history: props.history, match: props.match, location: props.location }
+  useEffect(() => {
+    props.dispatch(homeUrlParams(urlParams))
+  }, [])
   return <HomeContainer />;
 };
 
-export default Home;
+export default connect()(Home);
