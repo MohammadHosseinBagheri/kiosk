@@ -20,27 +20,16 @@ const Slider = (props) => {
       navigation
       dir='rtl'
       spaceBetween={10}
-      slidesPerView={1}
+      slidesPerView={3}
       breakpoints={{
-        270: {
-          slidesPerView: 2,
-        },
-        368: {
-          slidesPerView: 3,
-        },
         576: {
-          slidesPerView: 4,
-        },
-        768: {
-          slidesPerView: 5,
+          slidesPerView: 6,
         },
         992: {
-          slidesPerView: 6,
-        },
-        1200: {
-          slidesPerView: 6,
-        },
+          slidesPerView: 8,
+        }
       }}
+
     >
       {products.map(product => (
         <SwiperSlide key={product._id}>
