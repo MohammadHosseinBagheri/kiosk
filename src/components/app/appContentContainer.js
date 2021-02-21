@@ -1,7 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 
 const AppContentContainer = props => {
+
+    const [app, setApp] = useState({})
 
     useEffect(() => {
         if (Object.keys(props.url).length !== 0) {
@@ -11,11 +13,18 @@ const AppContentContainer = props => {
             for (let param of query.entries()) {
                 product[param[0]] = param[1]
             }
-            console.log(product)
+            setApp(product)
         }
-    })
+    }, [props.url])
 
-    return <div>App</div>
+    let info = Object.keys(app)
+        .map(key => <div key={key}>{key} : {app[key]}</div>)
+
+    return (
+        <div>
+            {info}
+        </div>
+    )
 }
 
 const mapStateToProps = state => ({

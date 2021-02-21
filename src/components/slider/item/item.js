@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 
 const Item = (props) => {
-  console.log(props)
+  // console.log(props)
 
   const slideClickedHandler = () => {
     const queryParams = []
@@ -20,7 +20,7 @@ const Item = (props) => {
   return (
     <div className="sliderItem" onClick={slideClickedHandler}>
       <img className="sliderImage" src={img} />
-      <p className="sliderTitle">{props.name}</p>
+      <p className="sliderTitle">{props.product.name}</p>
     </div>
   );
 };
