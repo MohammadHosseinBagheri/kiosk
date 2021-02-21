@@ -13,7 +13,7 @@ const Item = (props) => {
     queryParams.push('name='+ props.name)
     const queryString = queryParams.join('&')
     props.url.history.push({
-      pathname: '/product',
+      pathname: '/app',
       search: '?' + queryString
     })
   }
