@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { Container, Row, Col } from 'react-bootstrap'
 
 const AppContentContainer = props => {
 
@@ -21,9 +22,23 @@ const AppContentContainer = props => {
         .map(key => <div key={key}>{key} : {app[key]}</div>)
 
     return (
-        <div>
-            {info}
-        </div>
+        <Container dir='rtl'>
+            <Row>
+                <Col sm={12} md={6}>
+                    <Row>
+                        <Col xs={12} sm={6}>icon</Col>
+                        <Col xs={12} sm={6}>download</Col>
+                    </Row>
+                </Col>
+                <Col sm={12} md={6}>detaile</Col>
+            </Row>
+            <Row>
+                <Col>description</Col>
+            </Row>
+            <Row>
+                <Col>comment</Col>
+            </Row>
+        </Container>
     )
 }
 
