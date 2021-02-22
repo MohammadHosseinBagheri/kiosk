@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col , Button} from 'react-bootstrap'
 import img from './../../assets/icon/app.png'
-
 
 const AppContentContainer = props => {
 
@@ -33,7 +32,7 @@ const AppContentContainer = props => {
                                 <Col xs={12} sm={12}>{app.name}</Col>
                                 <Col xs={12} sm={12}>{app.companyName}</Col>
                                 <Col xs={12} sm={12}>نسخه : {app.version}</Col>
-                                <Col xs={12} sm={12}>add to cart</Col>
+                                <Col xs={12} sm={12} className='mt-3'><Button variant='success'>افزودن به سبد خرید</Button></Col>
                             </Row>
                         </Col>
                     </Row>
@@ -41,7 +40,7 @@ const AppContentContainer = props => {
                 <Col
                     sm={12}
                     md={6}
-                    className='text-center d-flex align-items-center justify-content-center'>
+                    className='mt-3 mb-3 text-center d-flex align-items-center justify-content-center justify-content-md-end'>
                     <Row>
                         <Col>
                             <Row>
