@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Container, Row, Col , Button} from 'react-bootstrap'
 import img from './../../assets/icon/app.png'
 
-const AppContentContainer = props => {
+const ApplicationContentContainer = props => {
 
     const [app, setApp] = useState({})
 
@@ -84,4 +84,4 @@ const mapStateToProps = state => ({
     url: state.appUrlParams
 })
 
-export default connect(mapStateToProps)(AppContentContainer)
+export default connect(mapStateToProps)(ApplicationContentContainer)

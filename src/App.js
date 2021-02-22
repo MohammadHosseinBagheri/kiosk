@@ -4,7 +4,7 @@ import Home from "./routes/home";
 import About from "./routes/about";
 import Cart from './routes/cart'
 import Login from './routes/login'
-import Application from './routes/app'
+import Application from './routes/application'
 import "./styles/index.scss";
 import { connect } from "react-redux";
 import { useEffect } from "react";
