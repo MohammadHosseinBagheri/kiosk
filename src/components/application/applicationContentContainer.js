@@ -43,27 +43,27 @@ const ApplicationContentContainer = props => {
                     className='mt-3 mb-3 text-center d-flex align-items-center justify-content-center justify-content-md-end'>
                     <Row>
                         <Col>
-                            <Row>
+                            <Row className='h-100'>
                                 <Col xs={12} sm={12}>{app.installNumber}+</Col>
-                                <Col xs={12} sm={12}>نصب فعال</Col>
+                                <Col xs={12} sm={12} className='detailApp'>نصب فعال</Col>
                             </Row>
                         </Col>
                         <Col>
-                            <Row>
+                            <Row className='h-100'>
                                 <Col xs={12} sm={12}>{app.rate}</Col>
-                                <Col xs={12} sm={12}>امتیاز</Col>
+                                <Col xs={12} sm={12} className='detailApp'>امتیاز</Col>
                             </Row>
                         </Col>
                         <Col>
-                            <Row>
+                            <Row className='h-100'>
                                 <Col xs={12} sm={12}>{app.tag}</Col>
-                                <Col xs={12} sm={12}>دسته</Col>
+                                <Col xs={12} sm={12} className='detailApp'>دسته</Col>
                             </Row>
                         </Col>
                         <Col>
-                            <Row>
+                            <Row className='h-100'>
                                 <Col xs={12} sm={12}>{app.size} مگابایت</Col>
-                                <Col xs={12} sm={12}>حجم</Col>
+                                <Col xs={12} sm={12} className='detailApp'>حجم</Col>
                             </Row>
                         </Col>
 
