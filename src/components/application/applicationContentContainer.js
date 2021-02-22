@@ -22,7 +22,7 @@ const ApplicationContentContainer = props => {
     return (
         <Container dir='rtl'>
             <Row>
-                <Col sm={12} md={6}>
+                <Col sm={12} md={7}>
                     <Row className='d-flex justify-content-center'>
                         <Col xs={12} sm={6} className='text-center'>
                             <img style={{ width: '100%', maxWidth: '200px' }} src={img} />
@@ -39,7 +39,7 @@ const ApplicationContentContainer = props => {
                 </Col>
                 <Col
                     sm={12}
-                    md={6}
+                    md={5}
                     className='mt-3 mb-3 text-center d-flex align-items-center justify-content-center justify-content-md-end'>
                     <Row>
                         <Col>
@@ -70,9 +70,12 @@ const ApplicationContentContainer = props => {
                     </Row>
                 </Col>
             </Row>
-            <Row>
-                <Col>description</Col>
+
+            <Row className='mt-5 mb-5 text-right'>
+                <Col sm={12} md={3}>توضیح سازنده :</Col>
+                <Col>{app.description}</Col>
             </Row>
+            
             <Row>
                 <Col>comment</Col>
             </Row>
