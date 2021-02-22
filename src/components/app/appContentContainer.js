@@ -27,10 +27,24 @@ const AppContentContainer = props => {
                 <Col sm={12} md={6}>
                     <Row>
                         <Col xs={12} sm={6}>icon</Col>
-                        <Col xs={12} sm={6}>download</Col>
+                        <Col xs={12} sm={6}>
+                            <Row className="text-sm-center text-md-right">
+                                <Col xs={12} sm={12}>name</Col>
+                                <Col xs={12} sm={12}>company</Col>
+                                <Col xs={12} sm={12}>version</Col>
+                                <Col xs={12} sm={12}>add to cart</Col>
+                            </Row>
+                        </Col>
                     </Row>
                 </Col>
-                <Col sm={12} md={6}>detaile</Col>
+                <Col sm={12} md={6} className='d-flex align-items-center justify-content-end'>
+                    <Row>
+                        <Col>rate</Col>
+                        <Col>categori</Col>
+                        <Col>install no</Col>
+                        <Col>size</Col>
+                    </Row>
+                </Col>
             </Row>
             <Row>
                 <Col>description</Col>
