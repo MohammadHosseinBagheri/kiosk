@@ -20,33 +20,54 @@ const AppContentContainer = props => {
         }
     }, [props.url])
 
-    let info = Object.keys(app)
-        .map(key => <div key={key}>{key} : {app[key]}</div>)
-
     return (
         <Container dir='rtl'>
             <Row>
                 <Col sm={12} md={6}>
                     <Row className='d-flex justify-content-center'>
                         <Col xs={12} sm={6} className='text-center'>
-                            <img style={{width: '100%' ,maxWidth: '200px'}} src={img} />
+                            <img style={{ width: '100%', maxWidth: '200px' }} src={img} />
                         </Col>
                         <Col xs={12} sm={6} className='d-flex justify-content-center align-items-center'>
                             <Row className="text-center text-md-right">
-                                <Col xs={12} sm={12}>name</Col>
-                                <Col xs={12} sm={12}>company</Col>
-                                <Col xs={12} sm={12}>version</Col>
+                                <Col xs={12} sm={12}>{app.name}</Col>
+                                <Col xs={12} sm={12}>{app.companyName}</Col>
+                                <Col xs={12} sm={12}>نسخه : {app.version}</Col>
                                 <Col xs={12} sm={12}>add to cart</Col>
                             </Row>
                         </Col>
                     </Row>
                 </Col>
-                <Col sm={12} md={6} className='d-flex align-items-center justify-content-center justify-content-md-end'>
+                <Col
+                    sm={12}
+                    md={6}
+                    className='text-center d-flex align-items-center justify-content-center'>
                     <Row>
-                        <Col>rate</Col>
-                        <Col>categori</Col>
-                        <Col>install no</Col>
-                        <Col>size</Col>
+                        <Col>
+                            <Row>
+                                <Col xs={12} sm={12}>{app.installNumber}+</Col>
+                                <Col xs={12} sm={12}>نصب فعال</Col>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <Row>
+                                <Col xs={12} sm={12}>{app.rate}</Col>
+                                <Col xs={12} sm={12}>امتیاز</Col>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <Row>
+                                <Col xs={12} sm={12}>{app.tag}</Col>
+                                <Col xs={12} sm={12}>دسته</Col>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <Row>
+                                <Col xs={12} sm={12}>{app.size} مگابایت</Col>
+                                <Col xs={12} sm={12}>حجم</Col>
+                            </Row>
+                        </Col>
+
                     </Row>
                 </Col>
             </Row>
