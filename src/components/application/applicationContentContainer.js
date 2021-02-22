@@ -29,10 +29,10 @@ const ApplicationContentContainer = props => {
                         </Col>
                         <Col xs={12} sm={6} className='d-flex justify-content-center align-items-center'>
                             <Row className="text-center text-md-right">
-                                <Col xs={12} sm={12}>{app.name}</Col>
+                                <Col xs={12} sm={12}><h2 className='font-weight-bold'>{app.name}</h2></Col>
                                 <Col xs={12} sm={12}>{app.companyName}</Col>
                                 <Col xs={12} sm={12}>نسخه : {app.version}</Col>
-                                <Col xs={12} sm={12} className='mt-3'><Button variant='success'>افزودن به سبد خرید</Button></Col>
+                                <Col xs={12} sm={12} className='mt-3 mb-3'><Button variant='success'>افزودن به سبد خرید</Button></Col>
                             </Row>
                         </Col>
                     </Row>
@@ -42,26 +42,26 @@ const ApplicationContentContainer = props => {
                     md={5}
                     className='mt-3 mb-3 text-center d-flex align-items-center justify-content-center justify-content-md-end'>
                     <Row>
-                        <Col>
-                            <Row className='h-100'>
+                        <Col xs={3} sm={3}>
+                            <Row  className='h-100'>
                                 <Col xs={12} sm={12}>{app.installNumber}+</Col>
                                 <Col xs={12} sm={12} className='detailApp'>نصب فعال</Col>
                             </Row>
                         </Col>
-                        <Col>
-                            <Row className='h-100'>
+                        <Col xs={3} sm={3}>
+                            <Row  className='h-100'>
                                 <Col xs={12} sm={12}>{app.rate}</Col>
                                 <Col xs={12} sm={12} className='detailApp'>امتیاز</Col>
                             </Row>
                         </Col>
-                        <Col>
-                            <Row className='h-100'>
+                        <Col xs={3} sm={3}>
+                            <Row  className='h-100'>
                                 <Col xs={12} sm={12}>{app.tag}</Col>
                                 <Col xs={12} sm={12} className='detailApp'>دسته</Col>
                             </Row>
                         </Col>
-                        <Col>
-                            <Row className='h-100'>
+                        <Col xs={3} sm={3}>
+                            <Row  className='h-100'>
                                 <Col xs={12} sm={12}>{app.size} مگابایت</Col>
                                 <Col xs={12} sm={12} className='detailApp'>حجم</Col>
                             </Row>
@@ -71,8 +71,8 @@ const ApplicationContentContainer = props => {
                 </Col>
             </Row>
 
-            <Row className='mt-5 mb-5 text-right'>
-                <Col sm={12} md={3}>توضیح سازنده :</Col>
+            <Row className='mt-5 mb-5 p-3 text-right shadow rounded '>
+                <Col sm={12} md={2}>درباره برنامه :</Col>
                 <Col>{app.description}</Col>
             </Row>
             
