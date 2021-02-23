@@ -10,33 +10,28 @@ import female from './../../assets/icon/female.png'
 const ApplicationContentContainer = props => {
 
     const [app, setApp] = useState({})
+    const [countComment, setCountComment] = useState(4)
+    const [isMoreComment, setIsMoreComment] = useState(true)
+
     const commentsApi = [
-        {
-            username: 'علیرضا',
-            feedback: 'عالی عالی نصب کنید',
-            userPhoto: male
-        },
-        {
-            username: 'محمدحسین',
-            feedback: 'بازی بسیار خوبیه دانلود کنید ممنون از سازندش',
-            userPhoto: male
-        },
-        {
-            username: 'پریسا',
-            feedback: 'سلام لطفا کنترل با فرمان هم در بازی قرار دهید',
-            userPhoto: female
-        },
-        {
-            username: 'احمد',
-            feedback: 'خیلی بازی بچگونس',
-            userPhoto: male
-        },
+        { username: 'علیرضا', feedback: 'عالی عالی نصب کنید', userPhoto: male }, { username: 'محمدحسین', feedback: 'بازی بسیار خوبیه دانلود کنید ممنون از سازندش', userPhoto: male }, { username: 'پریسا', feedback: 'سلام لطفا کنترل با فرمان هم در بازی قرار دهید', userPhoto: female }, { username: 'احمد', feedback: 'خیلی بازی بچگونس', userPhoto: male },
+        { username: 'سارا', feedback: 'عالی و پرتقالی🍊🍊', userPhoto: female }, { username: 'ریحانه', feedback: 'بازی بسیار خوبیه دانلود کنید ممنون از سازندش', userPhoto: female }, { username: 'امیر', feedback: 'خوب است بازی', userPhoto: male }, { username: 'مریم', feedback: 'برنامه ی جالبیه خوشم اومد', userPhoto: female },
+        { username: 'زینب', feedback: 'نرم افزار عالی هست فقط یکم کند هستش ...', userPhoto: female }, { username: 'امیرعلی', feedback: 'لایک', userPhoto: male }, { username: 'شیوا', feedback: 'خوبه ولی بعضی وقت ها طبلیق میاره و هنگ میکنه', userPhoto: female }, { username: 'ممد', feedback: 'بدک نیس', userPhoto: male },
     ]
+    const tenComments = commentsApi.slice(0, countComment)
+
+    const loadMoreComment = () => {
+        let moreComment = commentsApi.slice(countComment, countComment + 4)
+        tenComments.push(moreComment)
+        setCountComment(countComment + 4)
+        if (moreComment.length === 0) {
+            setIsMoreComment(false)
+        }
+    }
 
 
     useEffect(() => {
         if (Object.keys(props.url).length !== 0) {
-            console.log(props.url.location.search)
             const query = new URLSearchParams(props.url.location.search)
             const product = {}
             for (let param of query.entries()) {
@@ -104,9 +99,12 @@ const ApplicationContentContainer = props => {
 
             <Row className='mt-3'>
                 <Col xs={12} className='h4 mb-4'>نظرات کاربران</Col>
-                {commentsApi.map(comment =>
+                {tenComments.map(comment =>
                     <Col xs={12} md={8} className='border-bottom pb-3 mb-2'><ApplicationComment {...comment} /></Col>
                 )}
+                <Col xs={12} md={8} className={`text-center ${isMoreComment ? '' : 'd-none'}`}>
+                    <Button variant='primary' onClick={loadMoreComment}>کامنت های بیشتر</Button>
+                </Col>
             </Row>
         </Container>
     )
