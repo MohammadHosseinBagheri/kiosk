@@ -9,10 +9,12 @@ import ApplicationNewComment from './applicationNewComment'
 
 const ApplicationContentContainer = props => {
 
+    const {commentsApi} = props
+
     const [app, setApp] = useState({})
     const [countComment, setCountComment] = useState(4)
     const [isMoreComment, setIsMoreComment] = useState(true)
-
+    console.log(commentsApi)
     const tenComments = commentsApi.slice(0, countComment)
 
     const loadMoreComment = () => {
@@ -112,7 +114,8 @@ const ApplicationContentContainer = props => {
 }
 
 const mapStateToProps = state => ({
-    url: state.appUrlParams
+    url: state.appUrlParams,
+    commentsApi: state.comments
 })
 
 export default connect(mapStateToProps)(ApplicationContentContainer)
