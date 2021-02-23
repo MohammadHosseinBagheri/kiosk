@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import img from './../../assets/icon/app.png'
 import ApplicationComment from './applicationComment'
+import male from './../../assets/icon/male.png'
+import female from './../../assets/icon/female.png'
+
 
 const ApplicationContentContainer = props => {
 
@@ -10,19 +13,23 @@ const ApplicationContentContainer = props => {
     const commentsApi = [
         {
             username: 'علیرضا',
-            feedback: 'عالی عالی نصب کنید'
+            feedback: 'عالی عالی نصب کنید',
+            userPhoto: male
         },
         {
             username: 'محمدحسین',
-            feedback: 'بازی بسیار خوبیه دانلود کنید ممنون از سازندش'
+            feedback: 'بازی بسیار خوبیه دانلود کنید ممنون از سازندش',
+            userPhoto: male
         },
         {
-            username: 'ممد',
-            feedback: 'سلام لطفا کنترل با فرمان هم در بازی قرار دهید'
+            username: 'پریسا',
+            feedback: 'سلام لطفا کنترل با فرمان هم در بازی قرار دهید',
+            userPhoto: female
         },
         {
             username: 'احمد',
-            feedback: 'خیلی بازی بچگونس'
+            feedback: 'خیلی بازی بچگونس',
+            userPhoto: male
         },
     ]
 
@@ -38,7 +45,6 @@ const ApplicationContentContainer = props => {
             setApp(product)
         }
     }, [props.url])
-
     return (
         <Container dir='rtl' className='text-right'>
             <Row>
@@ -99,7 +105,7 @@ const ApplicationContentContainer = props => {
             <Row className='mt-3'>
                 <Col xs={12} className='h4 mb-4'>نظرات کاربران</Col>
                 {commentsApi.map(comment =>
-                    <Col xs={8} className='border-bottom pb-2 mb-2'><ApplicationComment {...comment} /></Col>
+                    <Col xs={12} md={8} className='border-bottom pb-3 mb-2'><ApplicationComment {...comment} /></Col>
                 )}
             </Row>
         </Container>
