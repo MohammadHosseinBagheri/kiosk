@@ -13,11 +13,6 @@ const ApplicationContentContainer = props => {
     const [countComment, setCountComment] = useState(4)
     const [isMoreComment, setIsMoreComment] = useState(true)
 
-    const commentsApi = [
-        { username: 'علیرضا', feedback: 'عالی عالی نصب کنید', userPhoto: male }, { username: 'محمدحسین', feedback: 'بازی بسیار خوبیه دانلود کنید ممنون از سازندش', userPhoto: male }, { username: 'پریسا', feedback: 'سلام لطفا کنترل با فرمان هم در بازی قرار دهید', userPhoto: female }, { username: 'احمد', feedback: 'خیلی بازی بچگونس', userPhoto: male },
-        { username: 'سارا', feedback: 'عالی و پرتقالی🍊🍊', userPhoto: female }, { username: 'ریحانه', feedback: 'بازی بسیار خوبیه دانلود کنید ممنون از سازندش', userPhoto: female }, { username: 'امیر', feedback: 'خوب است بازی', userPhoto: male }, { username: 'مریم', feedback: 'برنامه ی جالبیه خوشم اومد', userPhoto: female },
-        { username: 'زینب', feedback: 'نرم افزار عالی هست فقط یکم کند هستش ...', userPhoto: female }, { username: 'امیرعلی', feedback: 'لایک', userPhoto: male }, { username: 'شیوا', feedback: 'خوبه ولی بعضی وقت ها طبلیق میاره و هنگ میکنه', userPhoto: female }, { username: 'ممد', feedback: 'بدک نیس', userPhoto: male },
-    ]
     const tenComments = commentsApi.slice(0, countComment)
 
     const loadMoreComment = () => {
