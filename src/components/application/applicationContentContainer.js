@@ -1,11 +1,31 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { Container, Row, Col , Button} from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import img from './../../assets/icon/app.png'
+import ApplicationComment from './applicationComment'
 
 const ApplicationContentContainer = props => {
 
     const [app, setApp] = useState({})
+    const commentsApi = [
+        {
+            username: 'علیرضا',
+            feedback: 'عالی عالی نصب کنید'
+        },
+        {
+            username: 'محمدحسین',
+            feedback: 'بازی بسیار خوبیه دانلود کنید ممنون از سازندش'
+        },
+        {
+            username: 'ممد',
+            feedback: 'سلام لطفا کنترل با فرمان هم در بازی قرار دهید'
+        },
+        {
+            username: 'احمد',
+            feedback: 'خیلی بازی بچگونس'
+        },
+    ]
+
 
     useEffect(() => {
         if (Object.keys(props.url).length !== 0) {
@@ -43,25 +63,25 @@ const ApplicationContentContainer = props => {
                     className='mt-3 mb-3 text-center d-flex align-items-center justify-content-center justify-content-md-end'>
                     <Row>
                         <Col xs={3} sm={3}>
-                            <Row  className='h-100'>
+                            <Row className='h-100'>
                                 <Col xs={12} sm={12}>{app.installNumber}+</Col>
                                 <Col xs={12} sm={12} className='detailApp'>نصب فعال</Col>
                             </Row>
                         </Col>
                         <Col xs={3} sm={3}>
-                            <Row  className='h-100'>
+                            <Row className='h-100'>
                                 <Col xs={12} sm={12}>{app.rate}</Col>
                                 <Col xs={12} sm={12} className='detailApp'>امتیاز</Col>
                             </Row>
                         </Col>
                         <Col xs={3} sm={3}>
-                            <Row  className='h-100'>
+                            <Row className='h-100'>
                                 <Col xs={12} sm={12}>{app.tag}</Col>
                                 <Col xs={12} sm={12} className='detailApp'>دسته</Col>
                             </Row>
                         </Col>
                         <Col xs={3} sm={3}>
-                            <Row  className='h-100'>
+                            <Row className='h-100'>
                                 <Col xs={12} sm={12}>{app.size} مگابایت</Col>
                                 <Col xs={12} sm={12} className='detailApp'>حجم</Col>
                             </Row>
@@ -75,9 +95,9 @@ const ApplicationContentContainer = props => {
                 <Col sm={12} md={2}>درباره برنامه :</Col>
                 <Col>{app.description}</Col>
             </Row>
-            
+
             <Row>
-                <Col>comment</Col>
+                {commentsApi.map(comment => <Col xs={12} className='text-right'><ApplicationComment {...comment} /></Col>)}
             </Row>
         </Container>
     )
