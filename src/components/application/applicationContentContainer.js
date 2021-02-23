@@ -3,13 +3,11 @@ import { connect } from 'react-redux'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import img from './../../assets/icon/app.png'
 import ApplicationComment from './applicationComment'
-import male from './../../assets/icon/male.png'
-import female from './../../assets/icon/female.png'
 import ApplicationNewComment from './applicationNewComment'
 
 const ApplicationContentContainer = props => {
 
-    const {commentsApi} = props
+    const { commentsApi } = props
 
     const [app, setApp] = useState({})
     const [countComment, setCountComment] = useState(4)
