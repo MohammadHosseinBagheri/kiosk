@@ -37,3 +37,8 @@ export const receiveComments = comments => ({
   comments,
   type: types.RECIEVE_COMMENTS,
 });
+
+export const addComments = comment => ({
+  comment,
+  type: types.ADD_COMMENT,
+});
