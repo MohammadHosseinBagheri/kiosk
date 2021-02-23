@@ -40,7 +40,7 @@ const ApplicationContentContainer = props => {
     }, [props.url])
 
     return (
-        <Container dir='rtl'>
+        <Container dir='rtl' className='text-right'>
             <Row>
                 <Col sm={12} md={7}>
                     <Row className='d-flex justify-content-center'>
@@ -91,13 +91,16 @@ const ApplicationContentContainer = props => {
                 </Col>
             </Row>
 
-            <Row className='mt-5 mb-5 p-3 text-right shadow rounded '>
+            <Row className='mt-5 mb-5 p-3 shadow rounded '>
                 <Col sm={12} md={2}>درباره برنامه :</Col>
                 <Col>{app.description}</Col>
             </Row>
 
-            <Row>
-                {commentsApi.map(comment => <Col xs={12} className='text-right'><ApplicationComment {...comment} /></Col>)}
+            <Row className='mt-3'>
+                <Col xs={12} className='h4 mb-4'>نظرات کاربران</Col>
+                {commentsApi.map(comment =>
+                    <Col xs={8} className='border-bottom pb-2 mb-2'><ApplicationComment {...comment} /></Col>
+                )}
             </Row>
         </Container>
     )
