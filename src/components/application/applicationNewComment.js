@@ -1,43 +1,58 @@
 import React, { useState } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { addComments } from './../../redux/actions'
 
-const ApplicationNewComment = () => {
+const ApplicationNewComment = props => {
 
-    const [name, setName] = useState('')
+    const [username, setUsername] = useState('')
     const [comment, setComment] = useState('')
+    const [gender, setGender] = useState('')
 
     const nameChangedHandler = (event) => {
-        setName(event.target.value)
+        setUsername(event.target.value)
     }
 
     const commentChangedHandler = (event) => {
         setComment(event.target.value)
     }
 
+    const checkChangedHandler = event => {
+        setGender(event.target.id)
+    }
+
+
+    const sendComment = () => {
+        // post data
+        const comment1 = {
+            username, comment, gender
+        }
+        props.dispatch(addComments(comment1))
+    }
+
+
     return (
         <Form className='w-100 bg-light pb-5 px-5 pt-2 m-2 text-right shadow-sm rounded'>
             <Row>
-                <Col className='pb-4'>دیدگاه ارزشمند خود را وارد کنید</Col>
+                <Col className='pb-4'>دیدگاه</Col>
             </Row>
             <Row>
                 <Col xs={12}>
-                    <Form.Label>نام</Form.Label>
-                </Col>
-                <Col xs={12}>
                     <Form.Control onChange={nameChangedHandler} className='mb-3' placeholder="نام خود را وارد کنید..." />
-                </Col>
                 <Col xs={12}>
-                    <Form.Label>متن نظر شما</Form.Label>
                 </Col>
-                <Col xs={12}>
                     <Form.Control onChange={commentChangedHandler} className='mb-4' as='textarea' rows={3} placeholder="نظرت در مورد برنامه..." />
                 </Col>
+                <Col className='d-flex radio'>
+                    <Form.Check className='' onClick={checkChangedHandler} name='gender' id='male' label='آقا' type='radio' />
+                    <Form.Check className='' onClick={checkChangedHandler} name='gender' id='female' label='خانم' type='radio' />
+                </Col>
                 <Col xs={12} className='text-left'>
-                    <Button className='px-4 py-2' variant="outline-success" type="submit">ثبت نظر</Button>
+                    <Button className='px-4 py-2' variant="outline-success" onClick={sendComment}>ثبت دیدگاه</Button>
                 </Col>
             </Row>
         </Form>
     )
 }
 
-export default ApplicationNewComment
+export default connect()(ApplicationNewComment)
