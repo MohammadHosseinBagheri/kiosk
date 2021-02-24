@@ -3,7 +3,6 @@ import { receiveProducts, receiveBestProducts, receiveNewestProducts, receiveCom
 import Home from "./routes/home";
 import About from "./routes/about";
 import Cart from "./routes/cart"
-import Login from "./routes/login"
 import Application from "./routes/application"
 import "./styles/index.scss";
 import { connect } from "react-redux";
@@ -25,6 +24,10 @@ const App = (props) => {
     { "username": "زینب", "comment": "نرم افزار عالی هست فقط یکم کند هستش ...", "gender": "female" }, { "username": "امیرعلی", "comment": "لایک", "gender": "male" }, { "username": "شیوا", "comment": "خوبه ولی بعضی وقت ها طبلیق میاره و هنگ میکنه", "gender": "female" }, { "username": "ممد", "comment": "بدک نیس", "gender": "male" },
   ]
 
+  const users = [
+    { "username": "Alireza", "password": "1234", "gender": "male" }, { "username": "MohammadHossein", "password": "5678", "gender": "male" }
+  ]
+
 
   useEffect(() => {
     props.dispatch(receiveComments(comments))
@@ -43,7 +46,6 @@ const App = (props) => {
           <Route path="/app" component={Application} />
         </Switch>
         <Login />
-      </Layout>
     </Router>
   );
 };
