@@ -47,3 +47,8 @@ export const recieveUsers = users => ({
   users,
   type: types.RECIEVE_USERS
 })
+
+export const recieveLoginedUser = user => ({
+  user,
+  type: types.RECIEVE_LOGINED_USER
+})
