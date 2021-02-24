@@ -39,10 +39,10 @@ const App = (props) => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/login" component={Login} />
           <Route path="/cart" component={Cart} />
           <Route path="/app" component={Application} />
         </Switch>
+        <Login />
       </Layout>
     </Router>
   );
