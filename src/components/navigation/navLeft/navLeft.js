@@ -1,8 +1,22 @@
+import React, { useState } from 'react'
 import { Button } from "react-bootstrap";
 import { logIn } from "./../../../constants";
 import { NavLink } from 'react-router-dom'
+import Login from './../../login/loginContentContainer'
+
 
 const NavLeft = (props) => {
+
+  const [show, setShow] = useState(false)
+
+  const showModal = () => {
+    setShow(true)
+  }
+
+  const hideModalHandler = () => {
+    setShow(false)
+  }
+
   return (
     <div className={[props.className, "navLeft"].join(" ")}>
       <NavLink to='/cart'>
@@ -18,11 +32,10 @@ const NavLeft = (props) => {
           </svg>
         </Button>
       </NavLink>
-      <NavLink to='/login'>
-        <Button variant="info" className="ml-2">
-          {logIn}
-        </Button>
-      </NavLink>
+      <Button onClick={showModal} variant="info" className="ml-2">
+        {logIn}
+      </Button>
+      <Login show={show} hideHandle={hideModalHandler} />
     </div>
   );
 };
