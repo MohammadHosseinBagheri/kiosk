@@ -1,5 +1,5 @@
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { receiveProducts, receiveBestProducts, receiveNewestProducts, receiveComments } from "./redux/actions";
+import * as action from "./redux/actions";
 import Home from "./routes/home";
 import About from "./routes/about";
 import Cart from "./routes/cart"
@@ -30,10 +30,11 @@ const App = (props) => {
 
 
   useEffect(() => {
-    props.dispatch(receiveComments(comments))
-    props.dispatch(receiveProducts(data));
-    props.dispatch(receiveBestProducts(props.products))
-    props.dispatch(receiveNewestProducts(props.products))
+    props.dispatch(action.recieveUsers(users))
+    props.dispatch(action.receiveComments(comments))
+    props.dispatch(action.receiveProducts(data));
+    props.dispatch(action.receiveBestProducts(props.products))
+    props.dispatch(action.receiveNewestProducts(props.products))
   });
 
   return (
