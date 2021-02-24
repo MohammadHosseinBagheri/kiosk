@@ -1,6 +1,9 @@
 import { Modal, Button, Form } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
 
 const LoginContentContainer = props => {
+    const { users } = props
     return (
         <Modal
             centered
@@ -18,10 +21,14 @@ const LoginContentContainer = props => {
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="primary"  className='w-100' style={{borderRadius: '100px'}}>ورود</Button>
+                <Button variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ورود</Button>
             </Modal.Footer>
         </Modal>
     )
 }
 
-export default LoginContentContainer
+const mapStateToProps = state => ({
+    users: state.users
+})
+
+export default connect(mapStateToProps)(LoginContentContainer)
