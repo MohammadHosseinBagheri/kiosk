@@ -1,9 +1,35 @@
+import React, { useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 
 const LoginContentContainer = props => {
     const { users } = props
+
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const usernameChangedHandler = event => {
+        setUsername(event.target.value)
+    }
+
+    const passwordChangedHandler = event => {
+        setPassword(event.target.value)
+    }
+
+    const loginUser = () => {
+        let auth = false
+        users.map(user => {
+            if (!auth) {
+                auth = (username === user.username && password === user.password) ? true : false
+            }
+        })
+        if (auth) {
+            props.hideHandle()
+        }
+    }
+
+
     return (
         <Modal
             centered
@@ -16,12 +42,12 @@ const LoginContentContainer = props => {
             </Modal.Header>
 
             <Modal.Body as={Form} className='text-right'>
-                <Form.Control type="text" placeholder="نام کاربری خود را وارد کنید" className='mb-3' />
-                <Form.Control type="password" placeholder="رمز خود را وارد کنید" />
+                <Form.Control onChange={usernameChangedHandler} type="text" placeholder="نام کاربری خود را وارد کنید" className='mb-3' />
+                <Form.Control onChange={passwordChangedHandler} type="password" placeholder="رمز خود را وارد کنید" />
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ورود</Button>
+                <Button onClick={loginUser} variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ورود</Button>
             </Modal.Footer>
         </Modal>
     )
