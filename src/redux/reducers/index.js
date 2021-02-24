@@ -3,7 +3,7 @@ import { allProducts, newestProducts, bestProducts } from "./products";
 import sideDrawer from './sideDrawer'
 import { homeUrlParams, appUrlParams } from './urlParams'
 import comments from './comments'
-import users from './users'
+import { users, loginedUser } from './users'
 
 
 export default combineReducers({
@@ -14,5 +14,6 @@ export default combineReducers({
   homeUrlParams,
   appUrlParams,
   comments,
-  users
+  users,
+  loginedUser
 });

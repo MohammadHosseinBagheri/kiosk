@@ -9,4 +9,11 @@ const users = (state=[] , action) => {
     }
 }
 
-export default users
+const loginedUser = (state={} , action) => {
+    if(action.type === types.RECIEVE_LOGINED_USER){
+        return action.user
+    }
+    return state
+}
+
+export {users, loginedUser}
