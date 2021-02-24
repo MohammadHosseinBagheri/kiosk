@@ -32,7 +32,7 @@ const ApplicationNewComment = props => {
 
 
     return (
-        <Form className='w-100 bg-light pb-5 px-5 pt-2 m-2 text-right shadow-sm rounded'>
+        <Form className='w-100 bg-light pb-5 px-5 pt-2 my-2 text-right shadow-sm rounded'>
             <Row>
                 <Col className='pb-4'>دیدگاه</Col>
             </Row>
