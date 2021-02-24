@@ -45,7 +45,7 @@ const App = (props) => {
           <Route path="/cart" component={Cart} />
           <Route path="/app" component={Application} />
         </Switch>
-        <Login />
+      </Layout>
     </Router>
   );
 };
