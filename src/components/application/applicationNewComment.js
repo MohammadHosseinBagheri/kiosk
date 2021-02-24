@@ -5,9 +5,10 @@ import { addComments } from './../../redux/actions'
 
 const ApplicationNewComment = props => {
 
+    const { loginedUser } = props
+
     const [username, setUsername] = useState('')
     const [comment, setComment] = useState('')
-    const [gender, setGender] = useState('')
 
     const nameChangedHandler = (event) => {
         setUsername(event.target.value)
@@ -17,15 +18,12 @@ const ApplicationNewComment = props => {
         setComment(event.target.value)
     }
 
-    const checkChangedHandler = event => {
-        setGender(event.target.id)
-    }
-
-
     const sendComment = () => {
         // post data
         const comment1 = {
-            username, comment, gender
+            username: loginedUser.username,
+            gender: loginedUser.gender,
+            comment
         }
         props.dispatch(addComments(comment1))
     }
@@ -38,14 +36,10 @@ const ApplicationNewComment = props => {
             </Row>
             <Row>
                 <Col xs={12}>
-                    <Form.Control onChange={nameChangedHandler} className='mb-3' placeholder="نام خود را وارد کنید..." />
-                <Col xs={12}>
-                </Col>
+                    <Form.Control onChange={nameChangedHandler} className='mb-3' placeholder="نام خود را وارد کنید..." value={loginedUser.username} />
+                    <Col xs={12}>
+                    </Col>
                     <Form.Control onChange={commentChangedHandler} className='mb-4' as='textarea' rows={3} placeholder="نظرت در مورد برنامه..." />
-                </Col>
-                <Col className='d-flex radio'>
-                    <Form.Check className='' onClick={checkChangedHandler} name='gender' id='male' label='آقا' type='radio' />
-                    <Form.Check className='' onClick={checkChangedHandler} name='gender' id='female' label='خانم' type='radio' />
                 </Col>
                 <Col xs={12} className='text-left'>
                     <Button className='px-4 py-2' variant="outline-success" onClick={sendComment}>ثبت دیدگاه</Button>
@@ -55,4 +49,8 @@ const ApplicationNewComment = props => {
     )
 }
 
-export default connect()(ApplicationNewComment)
+const mapStateToProps = state => ({
+    loginedUser: state.loginedUser
+})
+
+export default connect(mapStateToProps)(ApplicationNewComment)
