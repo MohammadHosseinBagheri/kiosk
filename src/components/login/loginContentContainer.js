@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
-
+import { recieveLoginedUser } from './../../redux/actions'
 
 const LoginContentContainer = props => {
     const { users } = props
@@ -22,10 +22,19 @@ const LoginContentContainer = props => {
         users.map(user => {
             if (!auth) {
                 auth = (username === user.username && password === user.password) ? true : false
+                if (auth) {
+                    const loginedUser = {
+                        username: user.username,
+                        password: user.password,
+                        gender: user.gender
+                    }
+                    props.dispatch(recieveLoginedUser(loginedUser))
+                    props.hideHandle()
+                }
             }
+
         })
         if (auth) {
-            props.hideHandle()
         }
     }
 
