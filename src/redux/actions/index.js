@@ -42,3 +42,8 @@ export const addComments = comment => ({
   comment,
   type: types.ADD_COMMENT,
 });
+
+export const recieveUsers = users => ({
+  users,
+  type: types.RECIEVE_USERS
+})
