@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Modal, Button, Form, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { recieveLoginedUser } from './../../redux/actions'
+import RegisterUser from './registerUser'
 
 const LoginContentContainer = props => {
     const { users } = props
@@ -44,7 +45,12 @@ const LoginContentContainer = props => {
         setRegistered(false)
     }
 
+    const hideRegisterModal = () => {
+        setRegistered(true)
+    }
+
     return (
+        <>
             <Modal
                 centered
                 show={props.show}
@@ -70,6 +76,10 @@ const LoginContentContainer = props => {
                     </Col>
                 </Modal.Footer>
             </Modal>
+            <RegisterUser
+                registered={registered}
+                hideRegisterModal={hideRegisterModal} />
+        </>
     )
 }
 
