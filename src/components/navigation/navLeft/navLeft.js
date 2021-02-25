@@ -4,6 +4,7 @@ import { logIn } from "./../../../constants";
 import { NavLink } from 'react-router-dom'
 import Login from './../../login/loginContentContainer'
 import { connect } from 'react-redux'
+import User from './../../login/userModal'
 
 const NavLeft = (props) => {
 
@@ -45,12 +46,13 @@ const NavLeft = (props) => {
       </NavLink>
       {
         isLoginedUser
-          ? <Button onClick={showUserModal} variant="danger" className="ml-2">{props.loginedUser.username}</Button>
+          ? <Button onClick={showUserModalHandler} variant="danger" className="ml-2">{props.loginedUser.username}</Button>
           : <Button onClick={showLoginModalHandler} variant="info" className="ml-2">
             {logIn}
           </Button>
       }
       <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
+      <User show={showUserModal} hideHandle={hideUserModalHandler} />
     </div>
   );
 };
