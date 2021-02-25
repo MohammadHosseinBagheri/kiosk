@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Button } from "react-bootstrap";
 import { logIn } from "./../../../constants";
 import { NavLink } from 'react-router-dom'
-import Login from './../../login/loginContentContainer'
+import Login from './../../account/login'
 import { connect } from 'react-redux'
-import User from './../../login/userModal'
+import User from './../../account/userModal'
 
 const NavLeft = (props) => {
 
