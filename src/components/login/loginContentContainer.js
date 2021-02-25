@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Button, Form } from 'react-bootstrap'
+import { Modal, Button, Form, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { recieveLoginedUser } from './../../redux/actions'
 
@@ -56,7 +56,13 @@ const LoginContentContainer = props => {
             </Modal.Body>
 
             <Modal.Footer>
-                <Button onClick={loginUser} variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ورود</Button>
+                <Col xs={12}>
+                    <Button onClick={loginUser} variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ورود</Button>
+                </Col>
+                <Col xs={12} className='text-right'>
+                    <span>حساب کاربری ندارید؟</span>
+                    <Button variant='link'>ثبت نام</Button>
+                </Col>
             </Modal.Footer>
         </Modal>
     )
