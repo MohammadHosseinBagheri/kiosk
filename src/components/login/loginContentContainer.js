@@ -8,6 +8,7 @@ const LoginContentContainer = props => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [registered, setRegistered] = useState(true)
 
     const usernameChangedHandler = event => {
         setUsername(event.target.value)
@@ -38,33 +39,37 @@ const LoginContentContainer = props => {
         }
     }
 
+    const registerUser = () => {
+        props.hideHandle()
+        setRegistered(false)
+    }
 
     return (
-        <Modal
-            centered
-            show={props.show}
-            onHide={props.hideHandle}
-            dir='rtl'
-        >
-            <Modal.Header >
-                <Modal.Title >ورود به حساب کاربری</Modal.Title>
-            </Modal.Header>
+            <Modal
+                centered
+                show={props.show}
+                onHide={props.hideHandle}
+                dir='rtl'
+            >
+                <Modal.Header >
+                    <Modal.Title >ورود به حساب کاربری</Modal.Title>
+                </Modal.Header>
 
-            <Modal.Body as={Form} className='text-right'>
-                <Form.Control onChange={usernameChangedHandler} type="text" placeholder="نام کاربری خود را وارد کنید" className='mb-3' />
-                <Form.Control onChange={passwordChangedHandler} type="password" placeholder="رمز خود را وارد کنید" />
-            </Modal.Body>
+                <Modal.Body as={Form} className='text-right'>
+                    <Form.Control onChange={usernameChangedHandler} type="text" placeholder="نام کاربری خود را وارد کنید" className='mb-3' />
+                    <Form.Control onChange={passwordChangedHandler} type="password" placeholder="رمز خود را وارد کنید" />
+                </Modal.Body>
 
-            <Modal.Footer>
-                <Col xs={12}>
-                    <Button onClick={loginUser} variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ورود</Button>
-                </Col>
-                <Col xs={12} className='text-right'>
-                    <span>حساب کاربری ندارید؟</span>
-                    <Button variant='link'>ثبت نام</Button>
-                </Col>
-            </Modal.Footer>
-        </Modal>
+                <Modal.Footer>
+                    <Col xs={12}>
+                        <Button onClick={loginUser} variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ورود</Button>
+                    </Col>
+                    <Col xs={12} className='text-right'>
+                        <span>حساب کاربری ندارید؟</span>
+                        <Button onClick={registerUser} variant='link'>ثبت نام</Button>
+                    </Col>
+                </Modal.Footer>
+            </Modal>
     )
 }
 
