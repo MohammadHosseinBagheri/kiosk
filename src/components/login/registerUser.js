@@ -12,14 +12,18 @@ const RegisterUser = props => {
 
     const usernameChangedHandler = event => {
         setUsername(event.target.value)
+        console.log(event.target.value)
+
     }
 
     const passwordChangedHandler = event => {
         setPassword(event.target.value)
+        console.log(event.target.value)
     }
 
     const genderChangedHandler = event => {
         setGender(event.target.id)
+        console.log(event.target.id)
     }
 
     
@@ -39,7 +43,7 @@ const RegisterUser = props => {
                 <Form.Control onChange={passwordChangedHandler} type="password" placeholder="رمز" />
                 <Col className='d-flex genderCheck'>
                     <Form.Check onChange={genderChangedHandler} name='gender' id='male' type='radio' label='آقا' />
-                    <Form.Check onChange={genderChangedHandler} name='gender' id='male' type='radio' label='خانم' />
+                    <Form.Check onChange={genderChangedHandler} name='gender' id='female' type='radio' label='خانم' />
                 </Col>
             </Modal.Body>
 
