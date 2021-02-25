@@ -15,6 +15,7 @@ const UserModal = props => {
             show={props.show}
             onHide={props.hideHandle}
             dir='rtl'
+            centered
         >
             <Modal.Header >
                 <Modal.Title >اطلاعات حساب کاربری</Modal.Title>

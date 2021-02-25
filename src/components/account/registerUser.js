@@ -46,6 +46,7 @@ const RegisterUser = props => {
             show={!props.registered}
             onHide={props.hideRegisterModal}
             dir='rtl'
+            centered
         >
             <Modal.Header >
                 <Modal.Title >ثبت نام</Modal.Title>
