@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Modal, Button, Form, Col } from 'react-bootstrap'
-
+import {connect} from 'react-redux'
+import {addUser, recieveLoginedUser} from './../../redux/actions'
 
 const RegisterUser = props => {
     
@@ -26,6 +27,18 @@ const RegisterUser = props => {
         console.log(event.target.id)
     }
 
+    const sendNewUser = () => {
+        // post data
+        const user = {
+            username,
+            password,
+            gender
+        }
+        props.dispatch(addUser(user))
+        props.dispatch(recieveLoginedUser(user))
+        props.hideRegisterModal()
+    }
+
     
     
     return (
@@ -49,11 +62,11 @@ const RegisterUser = props => {
 
             <Modal.Footer>
                 <Col xs={12}>
-                    <Button variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ثبت نام</Button>
+                    <Button onClick={sendNewUser} variant="primary" className='w-100' style={{ borderRadius: '100px' }}>ثبت نام</Button>
                 </Col>
             </Modal.Footer>
         </Modal>
     )
 }
 
-export default RegisterUser
+export default connect()(RegisterUser)
