@@ -12,7 +12,6 @@ const ApplicationContentContainer = props => {
     const [app, setApp] = useState({})
     const [countComment, setCountComment] = useState(4)
     const [isMoreComment, setIsMoreComment] = useState(true)
-    console.log(commentsApi)
     const tenComments = commentsApi.slice(0, countComment)
 
     const loadMoreComment = () => {
@@ -95,7 +94,7 @@ const ApplicationContentContainer = props => {
             <Row className='mt-3'>
                 <Col xs={12} className='h4 mb-4'>نظرات کاربران</Col>
                 {tenComments.map(comment =>
-                    <Col xs={12} md={8} className='border-bottom pb-3 mb-2'><ApplicationComment {...comment} /></Col>
+                    <Col key={comment.username} xs={12} md={8} className='border-bottom pb-3 mb-2'><ApplicationComment {...comment} /></Col>
                 )}
                 <Col xs={12} md={8} className={`text-center ${isMoreComment ? '' : 'd-none'}`}>
                     <Button variant='primary' onClick={loadMoreComment}>کامنت های بیشتر</Button>

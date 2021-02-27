@@ -13,18 +13,15 @@ const RegisterUser = props => {
 
     const usernameChangedHandler = event => {
         setUsername(event.target.value)
-        console.log(event.target.value)
 
     }
 
     const passwordChangedHandler = event => {
         setPassword(event.target.value)
-        console.log(event.target.value)
     }
 
     const genderChangedHandler = event => {
         setGender(event.target.id)
-        console.log(event.target.id)
     }
 
     const sendNewUser = () => {

@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 
 
 const Item = (props) => {
-  // console.log(props)
-
   const slideClickedHandler = () => {
     const queryParams = []
     for (let i in props.product) {
