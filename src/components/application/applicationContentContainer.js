@@ -14,16 +14,6 @@ const ApplicationContentContainer = props => {
     const [isMoreComment, setIsMoreComment] = useState(true)
     const tenComments = commentsApi.slice(0, countComment)
 
-    const loadMoreComment = () => {
-        let moreComment = commentsApi.slice(countComment, countComment + 4)
-        tenComments.push(moreComment)
-        setCountComment(countComment + 4)
-        if (moreComment.length === 0) {
-            setIsMoreComment(false)
-        }
-    }
-
-
     useEffect(() => {
         if (Object.keys(props.url).length !== 0) {
             const query = new URLSearchParams(props.url.location.search)
@@ -34,6 +24,23 @@ const ApplicationContentContainer = props => {
             setApp(product)
         }
     }, [props.url])
+
+
+    const loadMoreComment = () => {
+        let moreComment = commentsApi.slice(countComment, countComment + 4)
+        tenComments.push(moreComment)
+        setCountComment(countComment + 4)
+        if (moreComment.length === 0) {
+            setIsMoreComment(false)
+        }
+    }
+
+    const addToCart = () => {
+        //post data to cart api
+        props.url.history.push('/cart')
+    }
+
+
     return (
         <Container dir='rtl' className='text-right'>
             <Row>
@@ -47,7 +54,9 @@ const ApplicationContentContainer = props => {
                                 <Col xs={12} sm={12}><h2 className='font-weight-bold'>{app.name}</h2></Col>
                                 <Col xs={12} sm={12}>{app.companyName}</Col>
                                 <Col xs={12} sm={12}>نسخه : {app.version}</Col>
-                                <Col xs={12} sm={12} className='mt-3 mb-3'><Button variant='success'>افزودن به سبد خرید</Button></Col>
+                                <Col xs={12} sm={12} className='mt-3 mb-3'>
+                                    <Button onClick={addToCart} variant='success'>افزودن به سبد خرید</Button>
+                                </Col>
                             </Row>
                         </Col>
                     </Row>
