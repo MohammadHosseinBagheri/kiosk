@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap'
 import img from './../../assets/icon/app.png'
 import ApplicationComment from './applicationComment'
 import ApplicationNewComment from './applicationNewComment'
+import * as action from './../../redux/actions'
 
 const ApplicationContentContainer = props => {
 
@@ -35,8 +36,10 @@ const ApplicationContentContainer = props => {
         }
     }
 
+
     const addToCart = () => {
         //post data to cart api
+        props.dispatch(action.addToCart(app))
         props.url.history.push('/cart')
     }
 
