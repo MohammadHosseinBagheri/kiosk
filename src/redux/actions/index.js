@@ -62,3 +62,8 @@ export const recieveCartProducts = cartProducts => ({
   type: types.RECIEVE_CART_PRODUCTS,
   cartProducts
 })
+
+export const addToCart = product => ({
+  type: types.ADD_TO_CART,
+  product
+})
