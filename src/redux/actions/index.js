@@ -59,6 +59,6 @@ export const addUser = user => ({
 })
 
 export const recieveCartProducts = cartProducts => ({
-  type: types.recieveCartProducts,
+  type: types.RECIEVE_CART_PRODUCTS,
   cartProducts
 })
