@@ -1,13 +1,18 @@
 import { connect } from 'react-redux'
 import { Container, Col, Row } from 'react-bootstrap'
-
+import CartProduct from './cartProduct'
 
 const CartContentContainer = props => {
+    console.log(props)
     const { products } = props
     return (
         <Container>
             <Row>
-                {products.map(product => <Col key={product._id}></Col>)}
+                {products.map(product => {
+                    <Col>
+                        <CartProduct {...product} />
+                    </Col>
+                })}
             </Row>
         </Container>
     )
