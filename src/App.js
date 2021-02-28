@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { useEffect } from "react";
 import Layout from "./hoc/layout";
 import useFetch from "./hooks";
-import { users, comments } from './api'
+import { users, comments, cartProducts } from './api'
 
 
 const App = (props) => {
@@ -19,6 +19,7 @@ const App = (props) => {
   )
 
   useEffect(() => {
+    props.dispatch(action.recieveCartProducts(cartProducts))
     props.dispatch(action.recieveUsers(users))
     props.dispatch(action.receiveComments(comments))
     props.dispatch(action.receiveProducts(data));
