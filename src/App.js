@@ -9,8 +9,7 @@ import { connect } from "react-redux";
 import { useEffect } from "react";
 import Layout from "./hoc/layout";
 import useFetch from "./hooks";
-import { users, comments, cartProducts } from './api'
-
+import Login from './components/account/login'
 
 const App = (props) => {
 
@@ -19,9 +18,6 @@ const App = (props) => {
   )
 
   useEffect(() => {
-    props.dispatch(action.recieveCartProducts(cartProducts))
-    props.dispatch(action.recieveUsers(users))
-    props.dispatch(action.receiveComments(comments))
     props.dispatch(action.receiveProducts(data));
     props.dispatch(action.receiveBestProducts(props.products))
     props.dispatch(action.receiveNewestProducts(props.products))
@@ -35,6 +31,7 @@ const App = (props) => {
           <Route path="/about" component={About} />
           <Route path="/cart" component={Cart} />
           <Route path="/app" component={Application} />
+          <Route path="/login" component={Login} />
         </Switch>
       </Layout>
     </Router>

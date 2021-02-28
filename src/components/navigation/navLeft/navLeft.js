@@ -1,33 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from "react-bootstrap";
 import { logIn } from "./../../../constants";
 import { NavLink } from 'react-router-dom'
-import Login from './../../account/login'
-import { connect } from 'react-redux'
-import User from './../../account/userModal'
 
 const NavLeft = (props) => {
-
-  const [showLoginModal, setShowLoginModal] = useState(false)
-  const [showUserModal, setShowUserModal] = useState(false)
-
-  const showLoginModalHandler = () => {
-    setShowLoginModal(true)
-  }
-  const hideLoginModalHandler = () => {
-    setShowLoginModal(false)
-  }
-
-  const showUserModalHandler = () => {
-    setShowUserModal(true)
-  }
-  const hideUserModalHandler = () => {
-    setShowUserModal(false)
-  }
-
-
-
-  let isLoginedUser = Object.keys(props.loginedUser).length > 0
 
   return (
     <div className={[props.className, "navLeft"].join(" ")}>
@@ -44,21 +20,14 @@ const NavLeft = (props) => {
           </svg>
         </Button>
       </NavLink>
-      {
-        isLoginedUser
-          ? <Button onClick={showUserModalHandler} variant="danger" className="ml-2">{props.loginedUser.username}</Button>
-          : <Button onClick={showLoginModalHandler} variant="info" className="ml-2">
-            {logIn}
-          </Button>
-      }
-      <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
-      <User show={showUserModal} hideHandle={hideUserModalHandler} />
+
+      <NavLink to='/login'>
+        <Button variant="info" className="ml-2">
+          {logIn}
+        </Button>
+      </NavLink>
     </div>
   );
 };
 
-const mapStateToProps = state => ({
-  loginedUser: state.loginedUser
-})
-
-export default connect(mapStateToProps)(NavLeft);
+export default NavLeft

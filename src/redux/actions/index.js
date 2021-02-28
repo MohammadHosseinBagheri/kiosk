@@ -33,37 +33,3 @@ export const appUrlParams = appUrlParams => ({
   appUrlParams
 })
 
-export const receiveComments = comments => ({
-  comments,
-  type: types.RECIEVE_COMMENTS,
-});
-
-export const addComments = comment => ({
-  comment,
-  type: types.ADD_COMMENT,
-});
-
-export const recieveUsers = users => ({
-  users,
-  type: types.RECIEVE_USERS
-})
-
-export const recieveLoginedUser = user => ({
-  user,
-  type: types.RECIEVE_LOGINED_USER
-})
-
-export const addUser = user => ({
-  user,
-  type: types.ADD_USER
-})
-
-export const recieveCartProducts = cartProducts => ({
-  type: types.RECIEVE_CART_PRODUCTS,
-  cartProducts
-})
-
-export const addToCart = product => ({
-  type: types.ADD_TO_CART,
-  product
-})
