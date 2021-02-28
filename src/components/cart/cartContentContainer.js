@@ -1,7 +1,20 @@
-const CartContentContainer = () => {
+import { connect } from 'react-redux'
+import { Container, Col, Row } from 'react-bootstrap'
+
+
+const CartContentContainer = props => {
+    const { products } = props
     return (
-        <div>صفحه سبد خرید</div>
+        <Container>
+            <Row>
+                {products.map(product => <Col key={product._id}></Col>)}
+            </Row>
+        </Container>
     )
 }
 
-export default CartContentContainer
+const mapStateToProps = state => ({
+    products: state.cartProducts
+})
+
+export default connect(mapStateToProps)(CartContentContainer)
