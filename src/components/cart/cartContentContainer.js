@@ -7,7 +7,6 @@ import emptyCartImg from './../../assets/icon/empty-cart.png'
 const CartContentContainer = props => {
     const { products, url } = props
     const [isProduct, setIsProduct] = useState(false)
-    console.log(url)
     useEffect(() => {
         products.length > 0 ? setIsProduct(true) : setIsProduct(false)
     }, [isProduct])
@@ -23,7 +22,7 @@ const CartContentContainer = props => {
                             <Row>
                                 <Col sm={12} md={8}>
                                     {products.map(product => {
-                                        return <CartProduct {...product} />
+                                        return <CartProduct product={product} />
                                     })}
                                 </Col>
                                 <Col sm={12} md={4} className=' d-none d-md-block' >
