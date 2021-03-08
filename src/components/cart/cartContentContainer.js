@@ -9,7 +9,7 @@ const CartContentContainer = props => {
     const [isProduct, setIsProduct] = useState(false)
     useEffect(() => {
         products.length > 0 ? setIsProduct(true) : setIsProduct(false)
-    }, [isProduct])
+    }, [products.length])
     const goToHome = () => {
         url.history.push('')
     }
