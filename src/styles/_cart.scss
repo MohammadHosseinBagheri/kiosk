@@ -1,0 +1,9 @@
+.cartTotalPrice {
+  position: initial;
+}
+
+@media (min-width: 768px) {
+  .cartTotalPrice {
+    position: fixed;
+  }
+}

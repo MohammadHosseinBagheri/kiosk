@@ -3,7 +3,6 @@ import { Container, Col, Row } from 'react-bootstrap'
 import CartProduct from './cartProduct'
 
 const CartContentContainer = props => {
-    // console.log(props)
     const { products } = props
     console.log(products)
     return (
@@ -14,12 +13,9 @@ const CartContentContainer = props => {
                         return <CartProduct {...product} />
                     })}
                 </Col>
-                <Col sm={12} md={3} >
-                    <div 
-                        className='position-fixed border border-info my-3 rounded '
-                        style={{
-                            'boxSizing': 'border-box'
-                        }}>
+                <Col sm={12} md={3}>
+                    <div
+                        className='cartTotalPrice '>
                         <Col xs={12} className='my-5'>
                             <div>مجموع سبد خرید</div>
                         </Col>
