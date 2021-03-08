@@ -18,18 +18,24 @@ const CartContentContainer = props => {
                             <Col xs={12} className='px-0 border-bottom py-2'>
                                 <div className='small'>جمع سبد خرید</div>
                             </Col>
-                            <Col xs={12} className='px-0 border-bottom py-2'>
+                            <Col xs={12} className='px-0 py-2'>
                                 <div className='small'>375000<span> تومن</span></div>
+                            </Col>
+                            <Col className='px-0'>
+                                <Button block style={{'borderRadius': '0'}}>ثبت سفارش</Button>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
             </Container>
             <Container dir='rtl' className='text-center'>
-                <Row className='d-unset d-md-none fixed-bottom bg-info' >
+                <Row className='d-unset d-md-none fixed-bottom bg-light border-top shadow py-2' >
                     <Col xs={6}>
-                        <div className='small'>جمع سبد خرید</div>
-                        <div className='small'>375000<span> تومن</span></div>
+                        <div className='small mb-1'>جمع سبد خرید</div>
+                        <div className='small '>375000<span> تومن</span></div>
+                    </Col>
+                    <Col xs={6}>
+                        <Button>ثبت سفارش</Button>
                     </Col>
                 </Row>
             </Container>
