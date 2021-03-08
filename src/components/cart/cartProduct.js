@@ -15,7 +15,7 @@ const CartProduct = props => {
                     <span>حذف</span>
                 </Button>
             </Col>
-            <Col xs={6} sm={6} className='d-flex flex-column justify-content-between align-items-start bd-highlight mb-3' >
+            <Col xs={6} sm={5} className='d-flex flex-column justify-content-between align-items-start bd-highlight mb-3' >
                 <Row className='text-right mt-3' >
                     <Col xs={12} className='h4 pl-0'>{props.name}</Col>
                     <Col xs={12} className='pl-0'>{props.companyName}</Col>
@@ -34,7 +34,7 @@ const CartProduct = props => {
                     </Col>
                 </Row>
             </Col>
-            <Col xs={0} sm={3} className='d-none d-sm-flex justify-content-end align-items-end mb-4 pl-5'>
+            <Col xs={0} sm={3} className='d-none d-sm-flex justify-content-end align-items-end mb-4'>
                 <strong>100 تومن</strong>
             </Col>
         </Row>
