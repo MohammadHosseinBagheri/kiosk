@@ -5,12 +5,15 @@ import CartProduct from './cartProduct'
 import emptyCartImg from './../../assets/icon/empty-cart.png'
 
 const CartContentContainer = props => {
-    const { products } = props
+    const { products, url } = props
     const [isProduct, setIsProduct] = useState(false)
-    console.log(products.length)
+    console.log(url)
     useEffect(() => {
         products.length > 0 ? setIsProduct(true) : setIsProduct(false)
     }, [isProduct])
+    const goToHome = () => {
+        url.history.push('')
+    }
     return (
         <>
             {
@@ -52,8 +55,13 @@ const CartContentContainer = props => {
                     </>
                     :
                     <div style={{ 'height': '90vh' }} className='d-flex flex-column justify-content-center align-items-center'>
-                        <img src={emptyCartImg}></img>
+                        <img src={emptyCartImg} />
                         <p>!سبد خرید شما خالی است</p>
+                        <p className='mt-3'>
+                            <span>برای مشاهده برنامه ها </span>
+                            <Button onClick={goToHome} variant='link' className='px-0'>اینجا</Button>
+                            <span> کلیک کنید </span>
+                        </p>
                     </div>
             }
         </>
@@ -62,7 +70,8 @@ const CartContentContainer = props => {
 }
 
 const mapStateToProps = state => ({
-    products: state.cartProducts
+    products: state.cartProducts,
+    url: state.homeUrlParams
 })
 
 export default connect(mapStateToProps)(CartContentContainer)
