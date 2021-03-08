@@ -14,15 +14,15 @@ const CartContentContainer = props => {
                         })}
                     </Col>
                     <Col sm={12} md={4} className=' d-none d-md-block' >
-                        <Row className='cartTotalPriceContent bg-light mt-5 mr-1 text-center'>
+                        <Row className='cartTotalPriceContent bg-light mt-5 mx-1 text-center'>
                             <Col xs={12} className='px-0 border-bottom py-2'>
-                                <div className='small'>جمع سبد خرید</div>
+                                <div>جمع سبد خرید</div>
                             </Col>
                             <Col xs={12} className='px-0 py-2'>
-                                <div className='small'>375000<span> تومن</span></div>
+                                <div>375000<span> تومن</span></div>
                             </Col>
                             <Col className='px-0'>
-                                <Button block style={{'borderRadius': '0'}}>ثبت سفارش</Button>
+                                <Button block style={{ 'borderRadius': '0' }}>ثبت سفارش</Button>
                             </Col>
                         </Row>
                     </Col>
@@ -31,10 +31,10 @@ const CartContentContainer = props => {
             <Container dir='rtl' className='text-center'>
                 <Row className='d-unset d-md-none fixed-bottom bg-light border-top shadow py-2' >
                     <Col xs={6}>
-                        <div className='small mb-1'>جمع سبد خرید</div>
-                        <div className='small '>375000<span> تومن</span></div>
+                        <div className='mb-1'>جمع سبد خرید</div>
+                        <div>375000<span> تومن</span></div>
                     </Col>
-                    <Col xs={6}>
+                    <Col xs={6} className='d-flex justify-content-center align-items-center'>
                         <Button>ثبت سفارش</Button>
                     </Col>
                 </Row>
