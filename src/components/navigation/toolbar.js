@@ -32,8 +32,8 @@ const Toolbar = () => {
         </Row>
       </nav>
       <div className='d-flex d-sm-none justify-content-between w-100'>
-        <DrawerToggle />
         <img src={img} />
+        <DrawerToggle />
       </div>
     </header>
   );
