@@ -7,7 +7,13 @@ const HomeContentContainer = (props) => {
 
 
   return (
-    <div>
+    <div className='home'>
+      <Slider products={bestProducts} />
+      <Slider products={newestProducts} />
+      <Slider products={bestProducts} />
+      <Slider products={newestProducts} />
+      <Slider products={bestProducts} />
+      <Slider products={newestProducts} />
       <Slider products={bestProducts} />
       <Slider products={newestProducts} />
     </div>
