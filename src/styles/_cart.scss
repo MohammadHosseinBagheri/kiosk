@@ -1,6 +1,12 @@
-.cartTotalPrice {
+.cart{
+  margin-top: 160px;
 }
 
+@media (max-width: 575px) {
+  .cart{
+      margin-top: 70px;
+  }
+}
 .cartTotalPriceContent {
   position: fixed;
 }

@@ -14,7 +14,7 @@ const CartContentContainer = props => {
         url.history.push('')
     }
     return (
-        <>
+        <div className='cart'>
             {
                 isProduct ?
                     <>
@@ -63,7 +63,7 @@ const CartContentContainer = props => {
                         </p>
                     </div>
             }
-        </>
+        </div>
 
     )
 }
