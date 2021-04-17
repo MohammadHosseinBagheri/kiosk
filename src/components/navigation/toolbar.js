@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import NavigationItems from "./navigationItems/navigationItems";
 import NavLeft from "./navLeft/navLeft";
 import DrawerToggle from "./sideDrawer/drawerToggle/drawerToggle";
+import img from './../../assets/icon/xbox1.png'
+import { Col, Row } from 'react-bootstrap'
 
 const Toolbar = () => {
 
@@ -20,9 +22,19 @@ const Toolbar = () => {
         <NavLeft />
       </div>
       <nav className="desktopOnly">
-        <NavigationItems />
+        <Row>
+          <Col>
+            <NavigationItems />
+          </Col>
+          <Col>
+            <img src={img} />
+          </Col>
+        </Row>
       </nav>
-      <DrawerToggle />
+      <div className='d-flex d-sm-none justify-content-between w-100'>
+        <DrawerToggle />
+        <img src={img} />
+      </div>
     </header>
   );
 };
