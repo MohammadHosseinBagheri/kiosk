@@ -85,11 +85,11 @@ const ApplicationNewComment = props => {
                 onHide={hideSuccessModalHandler}
                 dir='rtl'
             >
-                <Modal.Body as={Form} className='text-center pt-4 mb-1'>
-                    با موفقیت ثبت شد !
+                <Modal.Body as={Form} className='text-center pt-4 mb-1 text-success'>
+                    دیدگاه شما با موفقیت ثبت شد
                </Modal.Body>
                 <div className='d-flex pb-4 justify-content-center'>
-                    <Button variant='success' onClick={hideSuccessModalHandler}>تایید</Button>
+                    <Button variant='outline-success' onClick={hideSuccessModalHandler}>تایید</Button>
                 </div>
             </Modal>
             <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
