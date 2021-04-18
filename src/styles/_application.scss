@@ -9,3 +9,13 @@
         padding-right:17px ;
     }
 }
+
+.application{
+    margin-top: 160px;
+}
+
+@media (max-width: 575px) {
+    .application{
+        margin-top: 70px;
+    }
+}

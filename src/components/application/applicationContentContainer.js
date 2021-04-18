@@ -45,7 +45,7 @@ const ApplicationContentContainer = props => {
 
 
     return (
-        <Container dir='rtl' className='text-right'>
+        <Container dir='rtl' className='application text-right'>
             <Row>
                 <Col sm={12} md={7}>
                     <Row className='d-flex justify-content-center'>
