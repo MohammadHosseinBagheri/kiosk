@@ -46,7 +46,7 @@ const NavLeft = (props) => {
       </NavLink>
       {
         isLoginedUser
-          ? <Button onClick={showUserModalHandler} variant="outline-success" className="ml-2">{props.loginedUser.username}</Button>
+          ? <Button onClick={showUserModalHandler} variant="light" className="ml-2">{props.loginedUser.username}</Button>
           : <Button onClick={showLoginModalHandler} variant="light" className="ml-2">
             {logIn}
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
