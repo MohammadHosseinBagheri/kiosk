@@ -24,20 +24,22 @@
   .search-text {
     outline: none;
     border-radius: 999px;
-    background-color: #ddd;
+    background-color: #f0f0f0;
     text-align: right;
     padding: 9px 35px 9px 20px;
     border: none;
+    width: 60%;
 
     &:focus {
-      background-color: #eee;
+      background-color: #fafafa;
+      color:#495057;
     }
   }
 
   .icon-search {
     position: absolute;
     right: 10px;
-    top: 23px;
+    top: 12px;
   }
 }
 
@@ -46,13 +48,25 @@
   padding: 0 60px;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .desktopOnly {
     display: none;
   }
   .toolbar {
     border-bottom: 1px solid #aaa;
+    box-shadow: 0 0 7px #999;
     justify-content: flex-end;
     padding: 5px;
+    .icon-search{
+      top: 18px;
+    }
+  }
+}
+
+@media (max-width: 992px){
+  .toolbar{
+    .search-text{
+      width: 90%;
+    }
   }
 }
