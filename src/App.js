@@ -17,7 +17,7 @@ const App = (props) => {
   const { data } = useFetch(
     "https://still-headland-88471.herokuapp.com/api/applications/get"
   )
-  console.log(products)
+  
   useEffect(() => {
     props.dispatch(action.recieveCartProducts(cartProducts))
     props.dispatch(action.recieveUsers(users))
