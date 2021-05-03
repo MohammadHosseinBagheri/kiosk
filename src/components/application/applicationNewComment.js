@@ -3,6 +3,7 @@ import { Form, Row, Col, Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addComments } from "./../../redux/actions";
 import Login from "./../account/login";
+import axios from "axios";
 
 const ApplicationNewComment = (props) => {
   const { loginedUser } = props;
@@ -30,12 +31,25 @@ const ApplicationNewComment = (props) => {
   const sendComment = () => {
     // post data
     setShowSuccessModal(true);
+
     const comment1 = {
       username: loginedUser.username,
       gender: loginedUser.gender,
       comment,
     };
     props.dispatch(addComments(comment1));
+
+    // const comment1 = {
+    //   name: loginedUser.username,
+    //   text: comment,
+    //   _id: new Date().getTime(),
+    // };
+
+    // axios
+    //   .post(
+    //     "https://still-headland-88471.herokuapp.com/api/applications/add-comment",
+    //     comment1
+    //   )
   };
 
   const hideSuccessModalHandler = () => {

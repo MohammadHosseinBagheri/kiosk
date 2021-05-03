@@ -10,12 +10,6 @@ const HomeContentContainer = (props) => {
     <div className='home'>
       <Slider products={bestProducts} />
       <Slider products={newestProducts} />
-      <Slider products={bestProducts} />
-      <Slider products={newestProducts} />
-      <Slider products={bestProducts} />
-      <Slider products={newestProducts} />
-      <Slider products={bestProducts} />
-      <Slider products={newestProducts} />
     </div>
   );
 };
