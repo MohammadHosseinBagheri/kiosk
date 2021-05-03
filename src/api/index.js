@@ -18,4 +18,27 @@ export const users = [
     { "username": "MohammadHossein", "password": "5678", "gender": "male", "id": "8b87954822fb475485143287bc695dd0" }
 ]
 
+export const products = [
+    {"name":"Uber", "companyName":"Alireza","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"2000", "rate":"4.5", "size":"23", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Snapp", "companyName":"Alireza","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"2000", "rate":"4.5", "size":"23", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"YouTube", "companyName":"Alireza","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"2000", "rate":"4.5", "size":"23", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Translate", "companyName":"Alireza","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"2000", "rate":"4.5", "size":"23", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"WhatsApp", "companyName":"M.Hossein","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"2000", "rate":"4.5", "size":"23", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Instagram", "companyName":"M.Hossein","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"4000", "rate":"3", "size":"23", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"SpeedTest", "companyName":"M.Hossein","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"4000", "rate":"3", "size":"20", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"SnappFood", "companyName":"M.Hossein","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"4000", "rate":"3", "size":"20", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Telegram", "companyName":"M.Hossein","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"4000", "rate":"3", "size":"20", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Twitch", "companyName":"M.Hossein","categori":"جدیدترین", "tag":"game", "version":"9.6", "installNumber":"4000", "rate":"3", "size":"20", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Spotify", "companyName":"Alireza","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"1000", "rate":"5", "size":"20", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Sharait", "companyName":"Alireza","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"1000", "rate":"5", "size":"20", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"TikTok", "companyName":"Alireza","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"1000", "rate":"5", "size":"51", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Waze", "companyName":"Alireza","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"1000", "rate":"5", "size":"51", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Linkedin", "companyName":"M.Hossein","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"1000", "rate":"5", "size":"51", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Lens", "companyName":"M.Hossein","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"6000", "rate":"4.9", "size":"51", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Divar", "companyName":"M.Hossein","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"6000", "rate":"4.9", "size":"51", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Discord", "companyName":"M.Hossein","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"6000", "rate":"4.9", "size":"51", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+    {"name":"Earth", "companyName":"M.Hossein","categori":"بهترین", "tag":"game", "version":"9.6", "installNumber":"6000", "rate":"4.9", "size":"16", "description":"یه برنامه فوق العاده مناسب برای تمامی رده های سنی حتما نصب کنید نگم براتون", },
+]
+
+
 export const cartProducts = []
