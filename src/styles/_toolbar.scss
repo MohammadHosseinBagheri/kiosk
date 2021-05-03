@@ -14,12 +14,34 @@
   nav {
     height: 100%;
   }
+
+  .search-text{
+    outline: none;
+    border-radius: 999px;
+    background-color: #ddd;
+    text-align: right;
+    padding: 9px 35px 9px 20px;
+    border: none;
+    
+    &:focus{
+      background-color: #eee;
+    }
+  }
+
+  .icon-search{
+    position: absolute;
+    right: 10px;
+    top: 23px;
+  }
+
 }
 
 .sticky {
   border-bottom: 1px solid #aaa;
   padding: 0 60px;
 }
+
+
 
 @media (max-width: 575px) {
   .desktopOnly {
@@ -31,3 +53,4 @@
     padding: 5px;
   }
 }
+
