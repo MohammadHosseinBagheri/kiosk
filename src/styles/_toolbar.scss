@@ -15,25 +15,30 @@
     height: 100%;
   }
 
-  .search-text{
+  .site-icon {
+    color: #2e8b57;
+    line-height: 62px;
+    padding-left: 0;
+  }
+
+  .search-text {
     outline: none;
     border-radius: 999px;
     background-color: #ddd;
     text-align: right;
     padding: 9px 35px 9px 20px;
     border: none;
-    
-    &:focus{
+
+    &:focus {
       background-color: #eee;
     }
   }
 
-  .icon-search{
+  .icon-search {
     position: absolute;
     right: 10px;
     top: 23px;
   }
-
 }
 
 .sticky {
@@ -41,16 +46,13 @@
   padding: 0 60px;
 }
 
-
-
 @media (max-width: 575px) {
   .desktopOnly {
     display: none;
   }
-  .toolbar{
+  .toolbar {
     border-bottom: 1px solid #aaa;
     justify-content: flex-end;
     padding: 5px;
   }
 }
-
