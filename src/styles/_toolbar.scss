@@ -32,7 +32,7 @@
 
     &:focus {
       background-color: #fafafa;
-      color:#495057;
+      color: #495057;
     }
   }
 
@@ -45,6 +45,7 @@
 
 .sticky {
   border-bottom: 1px solid #aaa;
+  box-shadow: 0 0 7px #999;
   padding: 0 60px;
 }
 
@@ -57,16 +58,11 @@
     box-shadow: 0 0 7px #999;
     justify-content: flex-end;
     padding: 5px;
-    .icon-search{
+    .icon-search {
       top: 18px;
     }
-  }
-}
-
-@media (max-width: 992px){
-  .toolbar{
-    .search-text{
-      width: 90%;
+    .site-icon {
+      line-height: initial;
     }
   }
 }
