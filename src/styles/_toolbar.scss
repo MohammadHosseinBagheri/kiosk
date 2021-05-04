@@ -15,6 +15,12 @@
     height: 100%;
   }
 
+  .search {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
   .site-icon {
     color: #2e8b57;
     line-height: 62px;

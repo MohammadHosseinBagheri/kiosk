@@ -3,6 +3,7 @@ import NavigationItems from "./navigationItems/navigationItems";
 import NavLeft from "./navLeft/navLeft";
 import DrawerToggle from "./sideDrawer/drawerToggle/drawerToggle";
 import { Col, Row } from "react-bootstrap";
+import Search from "./search/search";
 
 const Toolbar = () => {
   const [fixToolbar, setFixToolbar] = useState(false);
@@ -19,19 +20,9 @@ const Toolbar = () => {
       <div className="desktopOnly">
         <NavLeft />
       </div>
-      <Col className="position-relative p-0 search d-none d-md-flex align-items-center justify-content-end">
-        <input className="search-text " type="text" placeholder="جستجو" />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          fill="currentColor"
-          className="bi bi-search icon-search"
-          viewBox="0 0 16 16"
-        >
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg>
-      </Col>
+      <div className="position-relative p-0 search d-none d-md-flex align-items-center justify-content-end">
+        <Search />
+      </div>
       <nav className="desktopOnly">
         <Row>
           <Col className="pr-0">
@@ -66,23 +57,9 @@ const Toolbar = () => {
         </Col>
         <Col
           xs={8}
-          className="position-relative p-0 search d-flex align-items-center pl-4"
+          className="position-relative p-0 search d-flex align-items-center"
         >
-          <input
-            className="search-text w-100"
-            type="text"
-            placeholder="جستجو"
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            fill="currentColor"
-            className="bi bi-search icon-search"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-          </svg>
+          <Search className='w-100'/>
         </Col>
         <Col xs={2} className="px-0 text-right">
           <DrawerToggle />
