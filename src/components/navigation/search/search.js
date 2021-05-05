@@ -40,80 +40,25 @@ const Search = (props) => {
         encodeURIComponent(i) + "=" + encodeURIComponent(product[i])
       );
     }
-
-    // console.log(props.homeUrl);
-    // console.log(props.appUrl);
-    // console.log(props.aboutUrl);
-    // console.log(props.cartUrl);
-
-    // console.log(props.appUrl.location.pathname);
-    // console.log(props.appUrl.location.pathname);
-    // console.log(props.appUrl.location.pathname);
-    // console.log(props.appUrl.location.pathname);
-
-    console.log(window.location.pathname);
-
     const queryString = queryParams.join("&");
 
-    if (window.location.pathname === props.appUrl.location.pathname) {
-      props.appUrl.history.push({
-        pathname: "/app",
-        search: "?" + queryString,
-      });
-    } else if (window.location.pathname === props.cartUrl.location.pathname) {
-      props.cartUrl.history.push({
-        pathname: "/app",
-        search: "?" + queryString,
-      });
-    } else if (window.location.pathname === props.aboutUrl.location.pathname) {
-      props.aboutUrl.history.push({
-        pathname: "/app",
-        search: "?" + queryString,
-      });
-    } else if (window.location.pathname === props.homeUrl.location.pathname) {
-      props.homeUrl.history.push({
-        pathname: "/app",
-        search: "?" + queryString,
-      });
-    }
+    const x = window.location.pathname;
 
-    // switch (window.location.pathname) {
-    //   case props.appUrl.location.pathname:
-    //     // console.log(window.location.pathname)
-    //     // console.log(props.appUrl.location.pathname)
-    //     props.appUrl.history.push({
-    //       pathname: "/app",
-    //       search: "?" + queryString,
-    //     });
-    //     break;
-    //   case props.cartUrl.location.pathname:
-    //     // console.log(window.location.pathname)
-    //     // console.log(props.cartUrl.location.pathname)
-    //     props.cartUrl.history.push({
-    //       pathname: "/app",
-    //       search: "?" + queryString,
-    //     });
-    //     break;
-    //   case props.aboutUrl.location.pathname:
-    //     // console.log(window.location.pathname)
-    //     // console.log(props.aboutUrl.location.pathname)
-    //     props.aboutUrl.history.push({
-    //       pathname: "/app",
-    //       search: "?" + queryString,
-    //     });
-    //     break;
-    //   case props.homeUrl.location.pathname:
-    //     // console.log(window.location.pathname)
-    //     // console.log(props.homeUrl.location.pathname)
-    //     props.homeUrl.history.push({
-    //       pathname: "/app",
-    //       search: "?" + queryString,
-    //     });
-    //     break;
+    const y =
+      x === "/"
+        ? props.homeUrl.history
+        : x === "/app"
+        ? props.appUrl.history
+        : x === "/about"
+        ? props.aboutUrl.history
+        : x === "/cart"
+        ? props.cartUrl.history
+        : null;
 
-    //   default:
-    //     break;
-    // }
+    y.push({
+      pathname: "/app",
+      search: "?" + queryString,
+    });
 
     setIsSuggestion(false);
     setSearchTerm("");

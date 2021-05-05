@@ -1,8 +1,9 @@
+import React, { useEffect } from "react";
 import CartContainer from "./../containers/cartContainer";
 import { connect } from "react-redux";
 import { cartUrlParams } from "./../redux/actions";
 
-const Cart = () => {
+const Cart = (props) => {
   const urlParams = {
     history: props.history,
     match: props.match,

@@ -1,7 +1,8 @@
+import React, { useEffect } from "react";
 import AboutContainer from "./../containers/aboutContainer";
 import { connect } from "react-redux";
 import { aboutUrlParams } from "./../redux/actions";
-const About = () => {
+const About = (props) => {
   const urlParams = {
     history: props.history,
     match: props.match,
