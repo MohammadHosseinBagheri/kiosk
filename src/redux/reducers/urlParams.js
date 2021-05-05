@@ -23,3 +23,11 @@ export const cartUrlParams = (state = {}, action) => {
     return state;
   }
 };
+
+export const aboutUrlParams = (state = {}, action) => {
+  if (action.type === types.ABOUT_URL_PARAMS) {
+    return action.aboutUrlParams;
+  } else {
+    return state;
+  }
+};
