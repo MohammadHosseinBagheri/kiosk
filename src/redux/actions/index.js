@@ -33,6 +33,11 @@ export const appUrlParams = appUrlParams => ({
   appUrlParams
 })
 
+export const cartUrlParams = appUrlParams => ({
+  type: types.CART_URL_PARAMS,
+  cartUrlParams
+})
+
 export const receiveComments = comments => ({
   comments,
   type: types.RECIEVE_COMMENTS,
