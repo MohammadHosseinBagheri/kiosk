@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { allProducts, newestProducts, bestProducts } from "./products";
 import sideDrawer from './sideDrawer'
-import { homeUrlParams, appUrlParams } from './urlParams'
+import { homeUrlParams, appUrlParams, cartUrlParams } from './urlParams'
 import comments from './comments'
 import { users, loginedUser } from './users'
 import cartProducts from './cartProducts'
@@ -13,6 +13,7 @@ export default combineReducers({
   showsideDrawer: sideDrawer,
   homeUrlParams,
   appUrlParams,
+  cartUrlParams,
   comments,
   users,
   loginedUser,
