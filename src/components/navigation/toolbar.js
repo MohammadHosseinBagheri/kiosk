@@ -4,8 +4,9 @@ import NavLeft from "./navLeft/navLeft";
 import DrawerToggle from "./sideDrawer/drawerToggle/drawerToggle";
 import { Col, Row } from "react-bootstrap";
 import Search from "./search/search";
+import { connect } from "react-redux";
 
-const Toolbar = () => {
+const Toolbar = props => {
   const [fixToolbar, setFixToolbar] = useState(false);
 
   window.onscroll = () => {
@@ -15,6 +16,26 @@ const Toolbar = () => {
       setFixToolbar(false);
     }
   };
+
+  const goToHome = () => {
+    const x = window.location.pathname;
+
+    const y =
+      x === "/"
+        ? props.homeUrl.history
+        : x === "/app"
+        ? props.appUrl.history
+        : x === "/about"
+        ? props.aboutUrl.history
+        : x === "/cart"
+        ? props.cartUrl.history
+        : null;
+
+    y.push({
+      pathname: "/",
+    });
+  };
+
   return (
     <header className={`${fixToolbar ? "sticky" : ""} toolbar`}>
       <div className="desktopOnly">
@@ -28,7 +49,7 @@ const Toolbar = () => {
           <Col className="pr-0">
             <NavigationItems />
           </Col>
-          <Col className="site-icon">
+          <Col className="site-icon" onClick={goToHome}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -43,7 +64,7 @@ const Toolbar = () => {
         </Row>
       </nav>
       <div className="d-flex d-md-none justify-content-between w-100">
-        <Col xs={2} className="site-icon px-0">
+        <Col xs={2} className="site-icon px-0" onClick={goToHome}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -59,7 +80,7 @@ const Toolbar = () => {
           xs={8}
           className="position-relative p-0 search d-flex align-items-center"
         >
-          <Search className='w-100'/>
+          <Search className="w-100" />
         </Col>
         <Col xs={2} className="px-0 text-right">
           <DrawerToggle />
@@ -69,4 +90,11 @@ const Toolbar = () => {
   );
 };
 
-export default Toolbar;
+const mapStateToProps = (state) => ({
+  homeUrl: state.homeUrlParams,
+  cartUrl: state.cartUrlParams,
+  aboutUrl: state.aboutUrlParams,
+  appUrl: state.appUrlParams,
+});
+
+export default connect(mapStateToProps)(Toolbar);
