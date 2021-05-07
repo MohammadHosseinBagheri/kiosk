@@ -102,7 +102,7 @@ const ApplicationNewComment = (props) => {
             <Row>
               <Col>
                 برای ارسال دیدگاه لازم است، ابتدا
-                <Button variant="link" onClick={showLoginModalHandler}>
+                <Button className='pt-0 border-bottom-0' variant="link" onClick={showLoginModalHandler}>
                   وارد سایت
                 </Button>
                 شوید.
