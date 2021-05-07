@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { Container, Col, Row, Button } from "react-bootstrap";
+import { Container, Col, Row, Button, FormControl } from "react-bootstrap";
 import CartProduct from "./cartProduct";
 import emptyCartImg from "./../../assets/icon/empty-cart.png";
 import Login from "./../account/login";
+import { Modal } from "react-bootstrap";
 
 const CartContentContainer = (props) => {
   const { products, url } = props;
   const [isProduct, setIsProduct] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showInfoUserModal, setShowInfoUserModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
   const showLoginModalHandler = () => {
     setShowLoginModal(true);
   };
@@ -16,11 +21,25 @@ const CartContentContainer = (props) => {
     setShowLoginModal(false);
   };
 
+  const hideInfoUserModalHandler = () => {
+    setShowInfoUserModal(false);
+  };
+  const showInfoUserModalHandler = () => {
+    setShowInfoUserModal(true);
+  };
+
+  const emailChangedHandler = (event) => {
+    setEmail(event.target.value);
+  };
+  const phoneNumberChangedHandler = (event) => {
+    setPhoneNumber(event.target.value);
+  };
+
   useEffect(() => {
     products.length > 0 ? setIsProduct(true) : setIsProduct(false);
   }, [products.length]);
   const goToHome = () => {
-    url.history.push("");
+    url.history.push("/");
   };
 
   let isLoginedUser = Object.keys(props.loginedUser).length > 0;
@@ -48,7 +67,11 @@ const CartContentContainer = (props) => {
                       </div>
                     </Col>
                     <Col className="px-0">
-                      <Button block style={{ borderRadius: "0" }}>
+                      <Button
+                        onClick={showInfoUserModalHandler}
+                        block
+                        style={{ borderRadius: "0" }}
+                      >
                         ثبت سفارش
                       </Button>
                     </Col>
@@ -68,16 +91,13 @@ const CartContentContainer = (props) => {
                   xs={6}
                   className="d-flex justify-content-center align-items-center"
                 >
-                  <Button>ثبت سفارش</Button>
+                  <Button onClick={showInfoUserModalHandler}>ثبت سفارش</Button>
                 </Col>
               </Row>
             </Container>
           </>
         ) : (
-          <div
-            style={{ height: "90vh" }}
-            className="d-flex flex-column justify-content-center align-items-center"
-          >
+          <div className="d-flex flex-column justify-content-center align-items-center">
             <img src={emptyCartImg} />
             <p>!سبد خرید شما خالی است</p>
             <p className="mt-3">
@@ -90,22 +110,68 @@ const CartContentContainer = (props) => {
           </div>
         )
       ) : (
-        <div className='text-center'>
+        <div className="text-center">
           <span>برای مشاهده سبد خرید خود، لازم است ابتدا</span>
-          <Button className='pt-0 border-bottom-0' variant="link" onClick={showLoginModalHandler}>
+          <Button
+            className="pt-0 border-bottom-0"
+            variant="link"
+            onClick={showLoginModalHandler}
+          >
             <span>وارد سایت</span>
           </Button>
           شوید
         </div>
       )}
       <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
+      <Modal
+        centered
+        dir="rtl"
+        show={showInfoUserModal}
+        onHide={hideInfoUserModalHandler}
+      >
+        <Modal.Header className="text-right">
+          <Modal.Title>
+            برای پرداخت نیازمند اطلاعات بیشتری هستیم، متشکریم:)
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <FormControl
+            onChange={(event) => emailChangedHandler(event)}
+            type="email"
+            placeholder="ایمیل خود را وارد کنید"
+            className="mb-3"
+          />
+          <FormControl
+            onChange={(event) => phoneNumberChangedHandler(event)}
+            type="text"
+            placeholder="شماره تلفن همراه خود را وارد کنید"
+            className="mb-1"
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Col>
+            <Button className="w-100" variant="success">
+              پرداخت
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              className="w-100"
+              variant="outline-warning"
+              onClick={hideInfoUserModalHandler}
+            >
+              لغو
+            </Button>
+          </Col>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
   products: state.cartProducts,
-  url: state.homeUrlParams,
+  url: state.cartUrlParams,
   loginedUser: state.loginedUser,
 });
 
