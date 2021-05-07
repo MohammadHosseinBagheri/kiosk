@@ -5,6 +5,7 @@ import CartProduct from "./cartProduct";
 import emptyCartImg from "./../../assets/icon/empty-cart.png";
 import Login from "./../account/login";
 import { Modal } from "react-bootstrap";
+import DiceIcons from './diceIcons'
 
 const CartContentContainer = (props) => {
   const { products, url } = props;
@@ -110,17 +111,20 @@ const CartContentContainer = (props) => {
           </div>
         )
       ) : (
-        <div className="text-center">
-          <span>برای مشاهده سبد خرید خود، لازم است ابتدا</span>
-          <Button
-            className="pt-0 border-bottom-0"
-            variant="link"
-            onClick={showLoginModalHandler}
-          >
-            <span>وارد سایت</span>
-          </Button>
-          شوید
-        </div>
+        <Container>
+          <Row dir='rtl'>
+            <span>برای مشاهده سبد خرید خود، لازم است ابتدا</span>
+            <Button
+              className="pt-0 border-bottom-0"
+              variant="link"
+              onClick={showLoginModalHandler}
+            >
+              <span>وارد سایت</span>
+            </Button>
+            شوید
+          </Row>
+          <DiceIcons />
+        </Container>
       )}
       <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
       <Modal
