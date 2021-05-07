@@ -1,9 +1,20 @@
 .about {
   margin-top: 160px;
+  color: #4caf50;
+  .about-us {
+    top: 0;
+    right: 0;
+  }
+  .first-about-icon {
+    padding-top: 0;
+  }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .about {
     margin-top: 70px;
+    .first-about-icon {
+      padding-top: 90px;
+    }
   }
 }
