@@ -5,7 +5,8 @@ import img from "./../../assets/icon/app.png";
 import ApplicationComment from "./applicationComment";
 import ApplicationNewComment from "./applicationNewComment";
 import * as action from "./../../redux/actions";
-import { Modal, ModalBody } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import Login from "./../account/login";
 
 const ApplicationContentContainer = (props) => {
   const { commentsApi } = props;
@@ -14,6 +15,15 @@ const ApplicationContentContainer = (props) => {
   const [countComment, setCountComment] = useState(4);
   const [isMoreComment, setIsMoreComment] = useState(true);
   const [showShouldBeLoginedUser, setShowShouldBeLoginedUser] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const showLoginModalHandler = () => {
+    setShowShouldBeLoginedUser(false)
+    setShowLoginModal(true);
+  };
+  const hideLoginModalHandler = () => {
+    setShowLoginModal(false);
+  };
 
   const tenComments = commentsApi.slice(0, countComment);
 
@@ -37,8 +47,6 @@ const ApplicationContentContainer = (props) => {
     }
   };
 
-
-
   const addToCart = () => {
     //post data to cart api
 
@@ -51,8 +59,8 @@ const ApplicationContentContainer = (props) => {
   };
 
   const hideShouldBeLoginedUserHandler = () => {
-      setShowShouldBeLoginedUser(false)
-  }
+    setShowShouldBeLoginedUser(false);
+  };
 
   let isLoginedUser = Object.keys(props.loginedUser).length > 0;
 
@@ -184,13 +192,14 @@ const ApplicationContentContainer = (props) => {
         onHide={hideShouldBeLoginedUserHandler}
         dir="rtl"
       >
-          <Modal.Body className='text-center'>
-              برای افزودن برنامه به سبد خرید لازم است ابتدا وارد سایت شوید
-          </Modal.Body>
-          <Modal.Footer className='d-flex justify-content-center'>
-              <Button>ورود به سایت</Button>
-          </Modal.Footer>
+        <Modal.Body className="text-center">
+          برای افزودن برنامه به سبد خرید لازم است ابتدا وارد سایت شوید
+        </Modal.Body>
+        <Modal.Footer className="d-flex justify-content-center">
+          <Button onClick={showLoginModalHandler}>ورود به سایت</Button>
+        </Modal.Footer>
       </Modal>
+      <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
     </>
   );
 };
