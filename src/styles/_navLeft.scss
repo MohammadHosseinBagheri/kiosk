@@ -1,10 +1,12 @@
 
-@media (max-width: "575px") {
+@media (max-width: "768px") {
     .navLeft {
         display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
+        flex-direction: column;
         padding-bottom: 10px;
         border-bottom: 2px solid black;
     }
+    .cartButton{
+        width: 100%;
+      }
 }
