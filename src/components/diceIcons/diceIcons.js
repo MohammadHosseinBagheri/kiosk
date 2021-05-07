@@ -3,7 +3,7 @@ import { Container, Col, Row } from "react-bootstrap";
 
 const DiceIcons = () => {
   return (
-    <Container>
+    <Container className='diceIcons px-0'>
       <Row className="first-about-icon">
         <Col xs={2}>
           <svg

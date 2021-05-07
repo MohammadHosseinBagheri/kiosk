@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import DiceIcons from './../cart/diceIcons'
+import DiceIcons from "./../diceIcons/diceIcons";
+
+
 const AboutContentContainer = () => {
   return (
     <Container className="about text-center position-relative">

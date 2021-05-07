@@ -5,7 +5,7 @@ import CartProduct from "./cartProduct";
 import emptyCartImg from "./../../assets/icon/empty-cart.png";
 import Login from "./../account/login";
 import { Modal } from "react-bootstrap";
-import DiceIcons from './diceIcons'
+import DiceIcons from "./../diceIcons/diceIcons";
 
 const CartContentContainer = (props) => {
   const { products, url } = props;
@@ -112,7 +112,7 @@ const CartContentContainer = (props) => {
         )
       ) : (
         <Container>
-          <Row dir='rtl'>
+          <Row dir="rtl">
             <span>برای مشاهده سبد خرید خود، لازم است ابتدا</span>
             <Button
               className="pt-0 border-bottom-0"
