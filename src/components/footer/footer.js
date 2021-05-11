@@ -86,7 +86,15 @@ const Footer = () => {
           </p>
         </Row>
       </Container>
-
+      <div className="text-right bg-white py-2 ">
+        <Container>
+          <Row>
+            <Col className="justify-content-end footer-copyright">
+              تمامی حقوق این سایت برای سرزمین دانلود محفوظ است © 2021
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 };
