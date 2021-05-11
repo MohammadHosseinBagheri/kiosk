@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import SocialMedia from "./socialMedia";
 
 const Footer = () => {
   return (
@@ -88,10 +89,11 @@ const Footer = () => {
       </Container>
       <div className="text-right bg-white py-2 ">
         <Container>
-          <Row>
-            <Col className="justify-content-end footer-copyright">
+          <Row className="justify-content-center justify-content-sm-between footer-bottom flex-column flex-sm-row">
+            <SocialMedia />
+            <div className="footer-copyright">
               تمامی حقوق این سایت برای سرزمین دانلود محفوظ است © 2021
-            </Col>
+            </div>
           </Row>
         </Container>
       </div>
