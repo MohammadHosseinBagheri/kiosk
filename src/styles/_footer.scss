@@ -41,3 +41,23 @@
     }
   }
 }
+
+@media (max-width: 475px){
+  .footer{
+    .dices{
+      .dice-sixth{
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 395px){
+  .footer{
+    .dices{
+      .dice-fifth{
+        display: none;
+      }
+    }
+  }
+}
