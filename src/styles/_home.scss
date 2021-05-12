@@ -1,9 +1,16 @@
 .home{
     margin-top: 160px;
+    .home-spinner{
+        min-height: 100vh;
+        padding-top: 13%;
+    }
 }
 
 @media (max-width: 768px) {
     .home{
         margin-top: 70px;
+        .home-spinner{
+            padding-top: 50%;
+        }
     }
 }

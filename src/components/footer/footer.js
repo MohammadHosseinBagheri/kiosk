@@ -74,11 +74,11 @@ const Footer = () => {
           </Col>
         </Row>
 
-        <Row className="justify-content-end top-content h5 text-right">
-          پرمخاطب‌ترین فروشگاه برنامه‌های موبایل اندروید، بازی
+        <Row className="justify-content-end footer-top-content h5 text-right">
+          پرمخاطب‌ترین فروشگاه برنامه‌ و بازی موبایل اندروید
         </Row>
         <Row>
-          <p className="text-right">
+          <p className="text-right footer-top-content">
             صد‌ها هزار بازی ایرانی و خارجی دیتادار یا بدون دیتا را با ترافیک
             نیم‌بها دانلود کنید و به سادگی خرید درون‌ برنامه‌ای انجام دهید.کیوسک
             مجهز به سپر امنیت است که برنامه‌ها را توسط آنتی ویروس‌ها بررسی کرده
@@ -91,7 +91,7 @@ const Footer = () => {
         <Container>
           <Row className="justify-content-center justify-content-sm-between footer-bottom flex-column flex-sm-row">
             <SocialMedia />
-            <div className="footer-copyright">
+            <div className="footer-copyright text-center">
               تمامی حقوق این سایت برای سرزمین دانلود محفوظ است © 2021
             </div>
           </Row>

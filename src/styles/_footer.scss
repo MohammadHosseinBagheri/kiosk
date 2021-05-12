@@ -27,13 +27,17 @@
   }
 }
 
-
-@media (max-width: 576px){
-    .footer{
-        .footer-social{
-            padding-left: 20px;
-            justify-content: center;
-            text-align: center;
-        }
+@media (max-width: 576px) {
+  .footer {
+    .footer-social {
+      max-width: 100%;
+      padding-left: 20px;
+      justify-content: center;
+      text-align: center;
     }
+    .footer-top-content {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+  }
 }
