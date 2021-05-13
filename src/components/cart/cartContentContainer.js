@@ -4,25 +4,14 @@ import { Container, Col, Row, Button, FormControl } from "react-bootstrap";
 import CartProduct from "./cartProduct";
 import emptyCartImg from "./../../assets/icon/empty-cart.png";
 import Login from "./../account/login";
-import { Modal } from "react-bootstrap";
 import DiceIcons from "./../diceIcons/diceIcons";
+import InfoModal from "./infoModal";
 
 const CartContentContainer = (props) => {
   const { products, url } = props;
   const [isProduct, setIsProduct] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showInfoUserModal, setShowInfoUserModal] = useState(false);
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-  const showLoginModalHandler = () => {
-    setShowLoginModal(true);
-  };
-  const hideLoginModalHandler = () => {
-    setShowLoginModal(false);
-  };
 
   const hideInfoUserModalHandler = () => {
     setShowInfoUserModal(false);
@@ -30,20 +19,11 @@ const CartContentContainer = (props) => {
   const showInfoUserModalHandler = () => {
     setShowInfoUserModal(true);
   };
-
-  const emailChangedHandler = (event) => {
-    setEmail(event.target.value);
+  const showLoginModalHandler = () => {
+    setShowLoginModal(true);
   };
-  const phoneNumberChangedHandler = (event) => {
-    setPhoneNumber(event.target.value);
-  };
-
-  const firstNameChangedHandler = (event) => {
-    setFirstName(event.target.value);
-  };
-
-  const lastNameChangedHandler = (event) => {
-    setLastName(event.target.value);
+  const hideLoginModalHandler = () => {
+    setShowLoginModal(false);
   };
 
   useEffect(() => {
@@ -137,61 +117,10 @@ const CartContentContainer = (props) => {
         </Container>
       )}
       <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
-      <Modal
-        centered
-        dir="rtl"
-        show={showInfoUserModal}
-        onHide={hideInfoUserModalHandler}
-      >
-        <Modal.Header className="text-right">
-          <Modal.Title>
-            برای پرداخت نیازمند مشخصات شما هستیم، متشکریم:)
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <FormControl
-            onChange={firstNameChangedHandler}
-            type="text"
-            placeholder="نام"
-            className="mb-3"
-          />
-          <FormControl
-            onChange={lastNameChangedHandler}
-            type="text"
-            placeholder="نام خانوادگی"
-            className="mb-3"
-          />
-
-          <FormControl
-            onChange={(event) => emailChangedHandler(event)}
-            type="email"
-            placeholder="ایمیل"
-            className="mb-3"
-          />
-          <FormControl
-            onChange={(event) => phoneNumberChangedHandler(event)}
-            type="text"
-            placeholder="شماره تلفن همراه"
-            className="mb-1"
-          />
-        </Modal.Body>
-        <Modal.Footer>
-          <Col>
-            <Button className="w-100" variant="success">
-              پرداخت
-            </Button>
-          </Col>
-          <Col>
-            <Button
-              className="w-100"
-              variant="outline-warning"
-              onClick={hideInfoUserModalHandler}
-            >
-              لغو
-            </Button>
-          </Col>
-        </Modal.Footer>
-      </Modal>
+      <InfoModal
+        showInfoUserModal={showInfoUserModal}
+        hideInfoUserModalHandler={hideInfoUserModalHandler}
+      />
     </div>
   );
 };
