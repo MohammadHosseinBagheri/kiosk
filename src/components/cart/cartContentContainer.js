@@ -14,6 +14,8 @@ const CartContentContainer = (props) => {
   const [showInfoUserModal, setShowInfoUserModal] = useState(false);
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const showLoginModalHandler = () => {
     setShowLoginModal(true);
@@ -34,6 +36,14 @@ const CartContentContainer = (props) => {
   };
   const phoneNumberChangedHandler = (event) => {
     setPhoneNumber(event.target.value);
+  };
+
+  const firstNameChangedHandler = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const lastNameChangedHandler = (event) => {
+    setLastName(event.target.value);
   };
 
   useEffect(() => {
@@ -135,20 +145,33 @@ const CartContentContainer = (props) => {
       >
         <Modal.Header className="text-right">
           <Modal.Title>
-            برای پرداخت نیازمند اطلاعات بیشتری هستیم، متشکریم:)
+            برای پرداخت نیازمند مشخصات شما هستیم، متشکریم:)
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FormControl
+            onChange={firstNameChangedHandler}
+            type="text"
+            placeholder="نام"
+            className="mb-3"
+          />
+          <FormControl
+            onChange={lastNameChangedHandler}
+            type="text"
+            placeholder="نام خانوادگی"
+            className="mb-3"
+          />
+
+          <FormControl
             onChange={(event) => emailChangedHandler(event)}
             type="email"
-            placeholder="ایمیل خود را وارد کنید"
+            placeholder="ایمیل"
             className="mb-3"
           />
           <FormControl
             onChange={(event) => phoneNumberChangedHandler(event)}
             type="text"
-            placeholder="شماره تلفن همراه خود را وارد کنید"
+            placeholder="شماره تلفن همراه"
             className="mb-1"
           />
         </Modal.Body>
