@@ -31,11 +31,11 @@ const NavLeft = (props) => {
 
   return (
     <div className={[props.className, "navLeft"].join(" ")}>
-      <NavLink to="/cart" className='order-2'> 
+      <NavLink to="/cart" className="order-2">
         <Button
           variant="success"
           onClick={() => props.dispatch(sideDrawerClosed())}
-          className='cartButton'
+          className="cartButton"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +50,12 @@ const NavLeft = (props) => {
         </Button>
       </NavLink>
       {isLoginedUser ? (
-        <Button onClick={showUserModalHandler} variant="light" className="ml-0 ml-md-2 mb-2 mb-md-0 order-1">
-          {props.loginedUser.username}
+        <Button
+          onClick={showUserModalHandler}
+          variant="light"
+          className="ml-0 ml-md-2 mb-2 mb-md-0 order-1"
+        >
+          {props.loginedUser.name}
         </Button>
       ) : (
         <Button
