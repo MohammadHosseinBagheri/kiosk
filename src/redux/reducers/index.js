@@ -1,5 +1,10 @@
 import { combineReducers } from "redux";
-import { allProducts, newestProducts, bestProducts } from "./products";
+import {
+  allProducts,
+  newestProducts,
+  bestProducts,
+  freeProducts,
+} from "./products";
 import sideDrawer from "./sideDrawer";
 import {
   homeUrlParams,
@@ -15,6 +20,7 @@ export default combineReducers({
   allProducts,
   newestProducts,
   bestProducts,
+  freeProducts,
   showsideDrawer: sideDrawer,
   homeUrlParams,
   appUrlParams,
