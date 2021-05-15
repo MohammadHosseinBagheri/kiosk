@@ -2,32 +2,31 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import * as action from "./redux/actions";
 import Home from "./routes/home";
 import About from "./routes/about";
-import Cart from "./routes/cart"
-import Application from "./routes/application"
+import Cart from "./routes/cart";
+import Application from "./routes/application";
 import "./styles/index.scss";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import Layout from "./hoc/layout";
 import useFetch from "./hooks";
-import { users, comments, cartProducts, products } from './api'
-
+import { users, comments, cartProducts } from "./api";
 
 const App = (props) => {
-
   const { data } = useFetch(
     "https://still-headland-88471.herokuapp.com/api/applications/get"
-  )
-  
+  );
+
   useEffect(() => {
-    props.dispatch(action.recieveCartProducts(cartProducts))
-    props.dispatch(action.recieveUsers(users))
-    props.dispatch(action.receiveComments(comments))
-    
+    props.dispatch(action.recieveCartProducts(cartProducts));
+    props.dispatch(action.recieveUsers(users));
+    props.dispatch(action.receiveComments(comments));
+
     props.dispatch(action.receiveProducts(data));
     // props.dispatch(action.receiveProducts(products));
 
-    props.dispatch(action.receiveBestProducts(props.products))
-    props.dispatch(action.receiveNewestProducts(props.products))
+    props.dispatch(action.receiveBestProducts(props.products));
+    props.dispatch(action.receiveNewestProducts(props.products));
+    props.dispatch(action.receiveFreeProducts(props.products));
   });
 
   return (
@@ -44,12 +43,8 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = (state) => (
-  {
-    products: state.allProducts
-  }
-)
-
-
+const mapStateToProps = (state) => ({
+  products: state.allProducts,
+});
 
 export default connect(mapStateToProps)(App);

@@ -20,7 +20,7 @@ const Item = (props) => {
 
   return (
     <div className="sliderItem" onClick={slideClickedHandler}>
-      <img className="sliderImage" src={img} />
+      <img className="sliderImage" src={props.product.imgUrl} />
       <p className="sliderTitle">{props.product.name}</p>
     </div>
   );

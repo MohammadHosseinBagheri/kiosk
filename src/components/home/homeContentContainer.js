@@ -4,12 +4,13 @@ import Footer from "./../footer/footer";
 import { Spinner } from "react-bootstrap";
 
 const HomeContentContainer = (props) => {
-  const { bestProducts, newestProducts } = props;
+  const { bestProducts, newestProducts, freeProducts } = props;
   let homeSliders =
     bestProducts.length > 0 ? (
       <>
-        <Slider products={bestProducts} />
-        <Slider products={newestProducts} />
+        <Slider products={bestProducts} title="بهترین برنامه ها" />
+        <Slider products={newestProducts} title="جدیدترین برنامه ها" />
+        <Slider products={freeProducts} title="برنامه های رایگان" />
       </>
     ) : (
       <div className="home-spinner d-flex justify-content-center">
@@ -27,6 +28,7 @@ const HomeContentContainer = (props) => {
 const mapStateToProps = (state) => ({
   bestProducts: state.bestProducts,
   newestProducts: state.newestProducts,
+  freeProducts: state.freeProducts,
 });
 
 export default connect(mapStateToProps)(HomeContentContainer);

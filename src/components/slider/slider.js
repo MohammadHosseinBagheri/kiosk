@@ -36,7 +36,7 @@ const Slider = (props) => {
 
   return (
     <div className="slider">
-      <h2 className="text-right">{categori}</h2>
+      <h2 className="text-right">{props.title}</h2>
       {swiper}
     </div>
   );
