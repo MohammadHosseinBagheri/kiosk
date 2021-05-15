@@ -181,7 +181,7 @@ const ApplicationContentContainer = (props) => {
 
         <Row className="my-5">
           <Col xs={12} md={8}>
-            <ApplicationNewComment />
+            <ApplicationNewComment id={app._id} />
           </Col>
         </Row>
       </Container>
