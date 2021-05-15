@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Form, Row, Col, Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
-import { addComments } from "./../../redux/actions";
 import Login from "./../account/login";
 import axios from "axios";
 
 const ApplicationNewComment = (props) => {
   const { loginedUser } = props;
 
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -21,7 +20,7 @@ const ApplicationNewComment = (props) => {
   };
 
   const nameChangedHandler = (event) => {
-    setUsername(event.target.value);
+    setName(event.target.value);
   };
 
   const commentChangedHandler = (event) => {
@@ -33,16 +32,15 @@ const ApplicationNewComment = (props) => {
     setShowSuccessModal(true);
 
     const commentUser = {
-      name: loginedUser.username,
+      name: name,
       text: comment,
       _id: props.id,
     };
 
-    axios
-      .post(
-        "https://still-headland-88471.herokuapp.com/api/applications/add-comment",
-        commentUser
-      )
+    axios.post(
+      "https://still-headland-88471.herokuapp.com/api/applications/add-comment",
+      commentUser
+    );
   };
 
   const hideSuccessModalHandler = () => {
@@ -95,7 +93,11 @@ const ApplicationNewComment = (props) => {
             <Row>
               <Col>
                 برای ارسال دیدگاه لازم است، ابتدا
-                <Button className='pt-0 border-bottom-0' variant="link" onClick={showLoginModalHandler}>
+                <Button
+                  className="pt-0 border-bottom-0"
+                  variant="link"
+                  onClick={showLoginModalHandler}
+                >
                   وارد سایت
                 </Button>
                 شوید.
