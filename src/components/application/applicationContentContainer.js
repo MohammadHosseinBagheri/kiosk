@@ -5,27 +5,13 @@ import img from "./../../assets/icon/app.png";
 import ApplicationComment from "./applicationComment";
 import ApplicationNewComment from "./applicationNewComment";
 import * as action from "./../../redux/actions";
-import { Modal } from "react-bootstrap";
-import Login from "./../account/login";
 
 const ApplicationContentContainer = (props) => {
-  const { commentsApi } = props;
+  const { products } = props;
 
   const [app, setApp] = useState({});
   const [countComment, setCountComment] = useState(4);
   const [isMoreComment, setIsMoreComment] = useState(true);
-  const [showShouldBeLoginedUser, setShowShouldBeLoginedUser] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-
-  const showLoginModalHandler = () => {
-    setShowShouldBeLoginedUser(false)
-    setShowLoginModal(true);
-  };
-  const hideLoginModalHandler = () => {
-    setShowLoginModal(false);
-  };
-
-  const tenComments = commentsApi.slice(0, countComment);
 
   useEffect(() => {
     if (Object.keys(props.url).length !== 0) {
@@ -38,8 +24,16 @@ const ApplicationContentContainer = (props) => {
     }
   }, [props.url]);
 
+  let comments = [];
+  products.map((product) => {
+    if (product._id === app._id) {
+      comments = product.comments;
+    }
+  });
+  const tenComments = comments.slice(0, countComment);
+
   const loadMoreComment = () => {
-    let moreComment = commentsApi.slice(countComment, countComment + 4);
+    let moreComment = comments.slice(countComment, countComment + 4);
     tenComments.push(moreComment);
     setCountComment(countComment + 4);
     if (moreComment.length === 0) {
@@ -48,21 +42,9 @@ const ApplicationContentContainer = (props) => {
   };
 
   const addToCart = () => {
-    //post data to cart api
-
-    if (isLoginedUser) {
-      props.dispatch(action.addToCart(app));
-      props.url.history.push("/cart");
-    } else {
-      setShowShouldBeLoginedUser(true);
-    }
+    props.dispatch(action.addToCart(app));
+    props.url.history.push("/cart");
   };
-
-  const hideShouldBeLoginedUserHandler = () => {
-    setShowShouldBeLoginedUser(false);
-  };
-
-  let isLoginedUser = Object.keys(props.loginedUser).length > 0;
 
   return (
     <>
@@ -71,7 +53,7 @@ const ApplicationContentContainer = (props) => {
           <Col sm={12} md={7}>
             <Row className="d-flex justify-content-center">
               <Col xs={12} sm={6} className="text-center">
-                <img style={{ width: "100%", maxWidth: "200px" }} src={img} />
+                <img style={{ width: "100%", maxWidth: "200px" }} src={app.imgUrl} />
               </Col>
               <Col
                 xs={12}
@@ -160,7 +142,7 @@ const ApplicationContentContainer = (props) => {
           </Col>
           {tenComments.map((comment) => (
             <Col
-              key={comment.username}
+              key={comment._id}
               xs={12}
               md={8}
               className="border-bottom pb-3 mb-2"
@@ -185,29 +167,13 @@ const ApplicationContentContainer = (props) => {
           </Col>
         </Row>
       </Container>
-      <Modal
-        size="sm"
-        centered
-        show={showShouldBeLoginedUser}
-        onHide={hideShouldBeLoginedUserHandler}
-        dir="rtl"
-      >
-        <Modal.Body className="text-center">
-          برای افزودن برنامه به سبد خرید لازم است ابتدا وارد سایت شوید
-        </Modal.Body>
-        <Modal.Footer className="d-flex justify-content-center">
-          <Button onClick={showLoginModalHandler}>ورود به سایت</Button>
-        </Modal.Footer>
-      </Modal>
-      <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
     </>
   );
 };
 
 const mapStateToProps = (state) => ({
   url: state.appUrlParams,
-  commentsApi: state.comments,
-  loginedUser: state.loginedUser,
+  products: state.allProducts,
 });
 
 export default connect(mapStateToProps)(ApplicationContentContainer);

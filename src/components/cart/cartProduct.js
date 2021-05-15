@@ -10,7 +10,7 @@ const CartProduct = props => {
     return (
         <Row className=' bg-light my-3 rounded'>
             <Col xs={5} sm={3} className='text-center d-flex flex-column justify-content-around align-items-center py-1' >
-                <img className='w-100' style={{ 'maxWidth': '150px' }} src={img} />
+                <img className='w-100' style={{ 'maxWidth': '150px' }} src={props.product.imgUrl} />
                 <Button onClick={removeProductHandler} variant='danger' className='py-0 d-sm-none'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
