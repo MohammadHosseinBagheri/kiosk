@@ -32,24 +32,17 @@ const ApplicationNewComment = (props) => {
     // post data
     setShowSuccessModal(true);
 
-    const comment1 = {
-      username: loginedUser.username,
-      gender: loginedUser.gender,
-      comment,
+    const commentUser = {
+      name: loginedUser.username,
+      text: comment,
+      _id: props.id,
     };
-    props.dispatch(addComments(comment1));
 
-    // const comment1 = {
-    //   name: loginedUser.username,
-    //   text: comment,
-    //   _id: new Date().getTime(),
-    // };
-
-    // axios
-    //   .post(
-    //     "https://still-headland-88471.herokuapp.com/api/applications/add-comment",
-    //     comment1
-    //   )
+    axios
+      .post(
+        "https://still-headland-88471.herokuapp.com/api/applications/add-comment",
+        commentUser
+      )
   };
 
   const hideSuccessModalHandler = () => {
