@@ -98,6 +98,7 @@ const CartContentContainer = (props) => {
       <InfoModal
         showInfoUserModal={showInfoUserModal}
         hideInfoUserModalHandler={hideInfoUserModalHandler}
+        totalPrice={totalPrice}
       />
     </div>
   );

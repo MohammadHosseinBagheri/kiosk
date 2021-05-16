@@ -63,7 +63,7 @@ export const recieveUsers = (users) => ({
   type: types.RECIEVE_USERS,
 });
 
-export const recieveLoginedUser = (name, email, password) => ({
+export const recieveLoginedUser = (name='Ali', email, password, id=0) => ({
   name,
   email,
   password,
