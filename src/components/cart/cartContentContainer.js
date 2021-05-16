@@ -10,6 +10,12 @@ const CartContentContainer = (props) => {
   const [isProduct, setIsProduct] = useState(false);
   const [showInfoUserModal, setShowInfoUserModal] = useState(false);
 
+  let totalPrice = 0;
+  products.map((product) => {
+    const old = totalPrice;
+    totalPrice = old + +product.price;
+  });
+
   const hideInfoUserModalHandler = () => {
     setShowInfoUserModal(false);
   };
@@ -42,7 +48,8 @@ const CartContentContainer = (props) => {
                   </Col>
                   <Col xs={12} className="px-0 py-2">
                     <div>
-                      375000<span> تومن</span>
+                      {totalPrice}
+                      <span> تومن</span>
                     </div>
                   </Col>
                   <Col className="px-0">
