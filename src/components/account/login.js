@@ -26,10 +26,11 @@ const LoginContentContainer = (props) => {
     axios
       .post("https://still-headland-88471.herokuapp.com/api/signin", user)
       .then((res) => {
-        console.log(res);
         const loginedUser = {
-          email: user.email,
-          password: user.password,
+          email: res.data.email,
+          password: res.data.password,
+          name: res.data.name,
+          id: res.data._id,
         };
         props.dispatch(recieveLoginedUser(loginedUser));
         props.hideHandle();

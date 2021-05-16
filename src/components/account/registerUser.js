@@ -25,17 +25,18 @@ const RegisterUser = (props) => {
     // post data
     const user = { email, password, name };
     axios
-      .post("https://still-headland-88471.herokuapp.com/api/register", user)
+      .post("https://still-headland-88471.herokuapp.com/api/signup", user)
       .then((res) => {
-        console.log("success ", res);
-        props.dispatch(recieveLoginedUser(user));
+        const loginedUser = {
+          email: res.data.email,
+          password: res.data.password,
+          name: res.data.name,
+          id: res.data._id,
+        };
+        props.dispatch(recieveLoginedUser(loginedUser));
         props.hideRegisterModal();
       })
       .catch((err) => console.log(err));
-
-    // props.dispatch(recieveLoginedUser(user));
-    // props.dispatch(addUser(user));
-    // props.hideRegisterModal();
   };
 
   return (
