@@ -14,8 +14,10 @@ const InfoModal = (props) => {
   console.log(loginedUser);
 
   useEffect(() => {
-  const api = 'https://still-headland-88471.herokuapp.com/api/peyment?id='+loginedUser.id
-  console.log(api)
+    const api =
+      "https://still-headland-88471.herokuapp.com/api/peyment?id=" +
+      loginedUser.id;
+    console.log(api);
     axios
       .get(api)
       .then((res) => console.log(res))
@@ -37,7 +39,7 @@ const InfoModal = (props) => {
     setLastName(event.target.value);
   };
 
-  const showFactor = () => {
+  const addToFactor = () => {
     const factorInfo = {
       id: props.loginedUser.id,
       product: props.products,
@@ -93,7 +95,7 @@ const InfoModal = (props) => {
       </Modal.Body>
       <Modal.Footer>
         <Col>
-          <Button className="w-100" variant="success" onClick={showFactor}>
+          <Button className="w-100" variant="success" onClick={addToFactor}>
             پرداخت
           </Button>
         </Col>

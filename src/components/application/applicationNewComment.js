@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Row, Col, Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import Login from "./../account/login";
@@ -52,40 +52,42 @@ const ApplicationNewComment = (props) => {
   return (
     <>
       <Form className="w-100 bg-light pb-5 px-5 pt-2 my-2 text-right shadow-sm rounded">
-        {isLoginedUser ? (
-          <>
-            <Row>
-              <Col className="pb-4">دیدگاه</Col>
-            </Row>
-            <Row>
-              <Col xs={12}>
-                <Form.Control
-                  onChange={nameChangedHandler}
-                  className="mb-3"
-                  placeholder="نام خود را وارد کنید..."
-                  value={loginedUser.username}
-                />
-                <Col xs={12}></Col>
-                <Form.Control
-                  onChange={commentChangedHandler}
-                  className="mb-4"
-                  as="textarea"
-                  rows={3}
-                  placeholder="نظرت در مورد برنامه..."
-                />
-              </Col>
-              <Col xs={12} className="text-left">
-                <Button
-                  className="px-4 py-2"
-                  variant="outline-success"
-                  onClick={sendComment}
-                >
-                  ثبت دیدگاه
-                </Button>
-              </Col>
-            </Row>
-          </>
-        ) : (
+        {/* {isLoginedUser ? ( */}
+        <>
+          <Row>
+            <Col className="pb-4">دیدگاه</Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <Form.Control
+                onChange={nameChangedHandler}
+                className="mb-3"
+                placeholder="نام خود را وارد کنید..."
+                value={loginedUser.username}
+              />
+              <Col xs={12}></Col>
+              <Form.Control
+                onChange={commentChangedHandler}
+                className="mb-4"
+                as="textarea"
+                rows={3}
+                placeholder="نظرت در مورد برنامه..."
+              />
+            </Col>
+            <Col xs={12} className="text-left">
+              <Button
+                className="px-4 py-2"
+                variant="outline-success"
+                onClick={sendComment}
+              >
+                ثبت دیدگاه
+              </Button>
+            </Col>
+          </Row>
+        </>
+        {/*
+          )
+          : (
           <>
             <Row>
               <Col className="pb-4">ثبت دیدگاه</Col>
@@ -104,7 +106,7 @@ const ApplicationNewComment = (props) => {
               </Col>
             </Row>
           </>
-        )}
+        )} */}
       </Form>
       <Modal
         size="sm"

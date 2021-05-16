@@ -7,8 +7,8 @@ import ApplicationNewComment from "./applicationNewComment";
 import * as action from "./../../redux/actions";
 
 const ApplicationContentContainer = (props) => {
-  const { products } = props;
-
+  const { products, cartProducts } = props;
+  console.log(cartProducts)
   const [app, setApp] = useState({});
   const [countComment, setCountComment] = useState(4);
   const [isMoreComment, setIsMoreComment] = useState(true);
@@ -30,10 +30,13 @@ const ApplicationContentContainer = (props) => {
       comments = product.comments;
     }
   });
-  const tenComments = comments.slice(0, countComment);
+
+  const mainComments = comments.filter((comment) => comment.text !== undefined);
+
+  const tenComments = mainComments.slice(0, countComment);
 
   const loadMoreComment = () => {
-    let moreComment = comments.slice(countComment, countComment + 4);
+    let moreComment = mainComments.slice(countComment, countComment + 4);
     tenComments.push(moreComment);
     setCountComment(countComment + 4);
     if (moreComment.length === 0) {
@@ -75,7 +78,9 @@ const ApplicationContentContainer = (props) => {
                   </Col>
                   <Col xs={12} sm={12} className="mt-3 mb-3">
                     {app.price === "0" ? (
-                      <Button variant='success'>دانلود با حجم {app.size}MB</Button>
+                      <Button variant="success">
+                        دانلود با حجم {app.size}MB
+                      </Button>
                     ) : (
                       <Button onClick={addToCart} variant="success">
                         افزودن به سبد خرید
@@ -181,6 +186,7 @@ const ApplicationContentContainer = (props) => {
 const mapStateToProps = (state) => ({
   url: state.appUrlParams,
   products: state.allProducts,
+  cartProducts: state.cartProducts,
 });
 
 export default connect(mapStateToProps)(ApplicationContentContainer);
