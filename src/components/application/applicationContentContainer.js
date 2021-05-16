@@ -53,7 +53,10 @@ const ApplicationContentContainer = (props) => {
           <Col sm={12} md={7}>
             <Row className="d-flex justify-content-center">
               <Col xs={12} sm={6} className="text-center">
-                <img style={{ width: "100%", maxWidth: "200px" }} src={app.imgUrl} />
+                <img
+                  style={{ width: "100%", maxWidth: "200px" }}
+                  src={app.imgUrl}
+                />
               </Col>
               <Col
                 xs={12}
@@ -71,9 +74,13 @@ const ApplicationContentContainer = (props) => {
                     نسخه : {app.version}
                   </Col>
                   <Col xs={12} sm={12} className="mt-3 mb-3">
-                    <Button onClick={addToCart} variant="success">
-                      افزودن به سبد خرید
-                    </Button>
+                    {app.price === "0" ? (
+                      <Button variant='success'>دانلود با حجم {app.size}MB</Button>
+                    ) : (
+                      <Button onClick={addToCart} variant="success">
+                        افزودن به سبد خرید
+                      </Button>
+                    )}
                   </Col>
                 </Row>
               </Col>
