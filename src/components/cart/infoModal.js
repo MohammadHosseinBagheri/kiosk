@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, FormControl, Button, Col } from "react-bootstrap";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -12,6 +12,15 @@ const InfoModal = (props) => {
   const { loginedUser } = props;
 
   console.log(loginedUser);
+
+  useEffect(() => {
+  const api = 'https://still-headland-88471.herokuapp.com/api/peyment?id='+loginedUser.id
+  console.log(api)
+    axios
+      .get(api)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }, []);
 
   const emailChangedHandler = (event) => {
     setEmail(event.target.value);
@@ -55,7 +64,7 @@ const InfoModal = (props) => {
           برای پرداخت نیازمند مشخصات شما هستیم، متشکریم:)
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body onSubmit={showFactor}>
+      <Modal.Body>
         <FormControl
           onChange={firstNameChangedHandler}
           type="text"
@@ -84,7 +93,7 @@ const InfoModal = (props) => {
       </Modal.Body>
       <Modal.Footer>
         <Col>
-          <Button className="w-100" variant="success" type="submit">
+          <Button className="w-100" variant="success" onClick={showFactor}>
             پرداخت
           </Button>
         </Col>
@@ -107,4 +116,4 @@ const mapStateToProps = (state) => ({
   products: state.cartProducts,
 });
 
-export default connect()(InfoModal);
+export default connect(mapStateToProps)(InfoModal);
