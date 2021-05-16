@@ -7,7 +7,6 @@ const CartProduct = props => {
     const removeProductHandler = () => {
         props.dispatch(removeFromCart(props.product._id))
     }
-    console.log(props.product.price)
     return (
         <Row className=' bg-light my-3 rounded'>
             <Col xs={5} sm={3} className='text-center d-flex flex-column justify-content-around align-items-center py-1' >

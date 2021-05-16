@@ -14,8 +14,8 @@ export const comments = [
 ]
 
 export const users = [
-    { "username": "Alireza", "password": "1234", "gender": "male", "id": "723c1c7f83b94107abaca6a9b224d824" },
-    { "username": "MohammadHossein", "password": "5678", "gender": "male", "id": "8b87954822fb475485143287bc695dd0" }
+    { "name": "Alireza", "email": "alireza@gmail.com", "password": "1234", "id": "723c1c7f83b94107abaca6a9b224d824" },
+    { "name": "MohammadHossein", "email": "mohammadhossein@gmail.com", "password": "5678", "id": "8b87954822fb475485143287bc695dd0" }
 ]
 
 export const products = [
