@@ -13,16 +13,16 @@ const InfoModal = (props) => {
 
   console.log(loginedUser);
 
-  useEffect(() => {
-    const api =
-      "https://still-headland-88471.herokuapp.com/api/peyment?id=" +
-      loginedUser.id;
-    console.log(api);
-    axios
-      .get(api)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   const api =
+  //     "https://still-headland-88471.herokuapp.com/api/peyment?id=" +
+  //     loginedUser.id;
+  //   console.log(api);
+  //   axios
+  //     .get(api)
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   const emailChangedHandler = (event) => {
     setEmail(event.target.value);
@@ -50,7 +50,10 @@ const InfoModal = (props) => {
         "https://still-headland-88471.herokuapp.com/api/peyment",
         factorInfo
       )
-      .then((res) => console.log(res))
+      .then((res) => {
+        props.hideInfoUserModalHandler();
+        console.log(res);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -59,7 +62,7 @@ const InfoModal = (props) => {
       centered
       dir="rtl"
       show={props.showInfoUserModal}
-      onHide={() => props.hideInfoUserModalHandler()}
+      onHide={props.hideInfoUserModalHandler}
     >
       <Modal.Header className="text-right">
         <Modal.Title>
@@ -72,6 +75,7 @@ const InfoModal = (props) => {
           type="text"
           placeholder="نام"
           className="mb-3"
+          value={loginedUser.name}
         />
         <FormControl
           onChange={lastNameChangedHandler}
@@ -85,6 +89,7 @@ const InfoModal = (props) => {
           type="email"
           placeholder="ایمیل"
           className="mb-3"
+          value={loginedUser.email}
         />
         <FormControl
           onChange={(event) => phoneNumberChangedHandler(event)}

@@ -4,11 +4,26 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 import CartProduct from "./cartProduct";
 import emptyCartImg from "./../../assets/icon/empty-cart.png";
 import InfoModal from "./infoModal";
+import OrdersHistory from "./ordersHistory";
+import axios from 'axios'
+
 
 const CartContentContainer = (props) => {
-  const { products, url } = props;
+  const { products, url, loginedUser } = props;
+
+
   const [isProduct, setIsProduct] = useState(false);
   const [showInfoUserModal, setShowInfoUserModal] = useState(false);
+  const [showHistoryModal, setShowHistoryModal] = useState(false);
+
+
+  const showHistoryModalHandler = () => {
+    setShowHistoryModal(true);
+  };
+
+  const hideHistoryModalHandler = () => {
+    setShowHistoryModal(false);
+  };
 
   let totalPrice = 0;
   products.map((product) => {
@@ -25,6 +40,13 @@ const CartContentContainer = (props) => {
 
   useEffect(() => {
     products.length > 0 ? setIsProduct(true) : setIsProduct(false);
+    const api =
+      "https://still-headland-88471.herokuapp.com/api/peyment?id=" +
+      loginedUser.id;
+    axios
+      .get(api)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   }, [products.length]);
   const goToHome = () => {
     url.history.push("/");
@@ -52,13 +74,24 @@ const CartContentContainer = (props) => {
                       <span> تومن</span>
                     </div>
                   </Col>
-                  <Col className="px-0">
+                  <Col xs={12} className="px-0">
                     <Button
                       onClick={showInfoUserModalHandler}
                       block
                       style={{ borderRadius: "0" }}
+                      variant="info"
                     >
                       ثبت سفارش
+                    </Button>
+                  </Col>
+                  <Col xs={12} className="mt-1 px-0">
+                    <Button
+                      variant="secondary"
+                      block
+                      style={{ borderRadius: "0" }}
+                      onClick={showHistoryModalHandler}
+                    >
+                      تاریخچه خریدها
                     </Button>
                   </Col>
                 </Row>
@@ -100,6 +133,7 @@ const CartContentContainer = (props) => {
         hideInfoUserModalHandler={hideInfoUserModalHandler}
         totalPrice={totalPrice}
       />
+      <OrdersHistory show={showHistoryModal} hide={hideHistoryModalHandler} />
     </div>
   );
 };
@@ -107,6 +141,7 @@ const CartContentContainer = (props) => {
 const mapStateToProps = (state) => ({
   products: state.cartProducts,
   url: state.cartUrlParams,
+  loginedUser: state.loginedUser,
 });
 
 export default connect(mapStateToProps)(CartContentContainer);
