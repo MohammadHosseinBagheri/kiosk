@@ -5,17 +5,15 @@ import CartProduct from "./cartProduct";
 import emptyCartImg from "./../../assets/icon/empty-cart.png";
 import InfoModal from "./infoModal";
 import OrdersHistory from "./ordersHistory";
-import axios from 'axios'
-
+import axios from "axios";
 
 const CartContentContainer = (props) => {
   const { products, url, loginedUser } = props;
 
-
   const [isProduct, setIsProduct] = useState(false);
   const [showInfoUserModal, setShowInfoUserModal] = useState(false);
   const [showHistoryModal, setShowHistoryModal] = useState(false);
-
+  const [purchasedProducts, setPurchasedProducts] = useState([]);
 
   const showHistoryModalHandler = () => {
     setShowHistoryModal(true);
@@ -45,12 +43,16 @@ const CartContentContainer = (props) => {
       loginedUser.id;
     axios
       .get(api)
-      .then((res) => console.log(res))
+      .then((res) => {
+        setPurchasedProducts(res.data);
+        console.log(res);
+      })
       .catch((err) => console.log(err));
-  }, [products.length]);
+  }, [products.length,showHistoryModal]);
   const goToHome = () => {
     url.history.push("/");
   };
+  let isLoginedUser = Object.keys(loginedUser).length > 0;
 
   return (
     <div className="cart">
@@ -84,16 +86,18 @@ const CartContentContainer = (props) => {
                       ثبت سفارش
                     </Button>
                   </Col>
-                  <Col xs={12} className="mt-1 px-0">
-                    <Button
-                      variant="secondary"
-                      block
-                      style={{ borderRadius: "0" }}
-                      onClick={showHistoryModalHandler}
-                    >
-                      تاریخچه خریدها
-                    </Button>
-                  </Col>
+                  {isLoginedUser ? (
+                    <Col xs={12} className="mt-1 px-0">
+                      <Button
+                        variant="secondary"
+                        block
+                        style={{ borderRadius: "0" }}
+                        onClick={showHistoryModalHandler}
+                      >
+                        تاریخچه خریدها
+                      </Button>
+                    </Col>
+                  ) : null}
                 </Row>
               </Col>
             </Row>
@@ -133,7 +137,13 @@ const CartContentContainer = (props) => {
         hideInfoUserModalHandler={hideInfoUserModalHandler}
         totalPrice={totalPrice}
       />
-      <OrdersHistory show={showHistoryModal} hide={hideHistoryModalHandler} />
+      {isLoginedUser ? (
+        <OrdersHistory
+          show={showHistoryModal}
+          hide={hideHistoryModalHandler}
+          purchasedProducts={purchasedProducts}
+        />
+      ) : null}
     </div>
   );
 };
