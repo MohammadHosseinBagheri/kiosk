@@ -56,7 +56,7 @@ const OrdersHistory = (props) => {
         <Col xs={12} className="text-center">
           <Button
             onClick={props.hide}
-            variant="success px-5"
+            variant="info w-100"
             style={{ borderRadius: "100px" }}
           >
             تایید

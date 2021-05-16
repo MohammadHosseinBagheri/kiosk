@@ -48,14 +48,14 @@ const CartContentContainer = (props) => {
         console.log(res);
       })
       .catch((err) => console.log(err));
-  }, [products.length,showHistoryModal]);
+  }, [products.length, showHistoryModal]);
   const goToHome = () => {
     url.history.push("/");
   };
   let isLoginedUser = Object.keys(loginedUser).length > 0;
 
   return (
-    <div className="cart">
+    <div className="cart pb-5 mb-5">
       {isProduct ? (
         <>
           <Container dir="rtl">
@@ -65,6 +65,17 @@ const CartContentContainer = (props) => {
                   return <CartProduct product={product} />;
                 })}
               </Col>
+              {isLoginedUser ? (
+                <Col className="d-unset d-md-none">
+                  <Button
+                    variant="warning"
+                    block
+                    onClick={showHistoryModalHandler}
+                  >
+                    تاریخچه خریدها
+                  </Button>
+                </Col>
+              ) : null}
               <Col sm={12} md={4} className=" d-none d-md-block">
                 <Row className="cartTotalPriceContent bg-light mt-5 mx-1 text-center">
                   <Col xs={12} className="px-0 border-bottom py-2">
@@ -107,30 +118,46 @@ const CartContentContainer = (props) => {
               <Col xs={6}>
                 <div className="mb-1">جمع سبد خرید</div>
                 <div>
-                  375000<span> تومن</span>
+                  {totalPrice}
+                  <span> تومن</span>
                 </div>
               </Col>
               <Col
                 xs={6}
                 className="d-flex justify-content-center align-items-center"
               >
-                <Button onClick={showInfoUserModalHandler}>ثبت سفارش</Button>
+                <Button onClick={showInfoUserModalHandler} variant="info">
+                  ثبت سفارش
+                </Button>
               </Col>
             </Row>
           </Container>
         </>
       ) : (
-        <div className="d-flex flex-column justify-content-center align-items-center">
-          <img src={emptyCartImg} />
-          <p>!سبد خرید شما خالی است</p>
-          <p className="mt-3">
-            <span>برای مشاهده برنامه ها </span>
-            <Button onClick={goToHome} variant="link" className="px-0">
-              اینجا
-            </Button>
-            <span> کلیک کنید </span>
-          </p>
-        </div>
+        <>
+          <div className="d-flex flex-column justify-content-center align-items-center">
+            <img src={emptyCartImg} />
+            <p>!سبد خرید شما خالی است</p>
+            <p className="mt-3">
+              <span>برای مشاهده برنامه ها </span>
+              <Button onClick={goToHome} variant="link" className="px-0">
+                اینجا
+              </Button>
+              <span> کلیک کنید </span>
+            </p>
+            {isLoginedUser ? (
+              <div>
+                <Button
+                  variant="warning"
+                  block
+                  onClick={showHistoryModalHandler}
+                >
+                  تاریخچه خریدها
+                </Button>
+              </div>
+            ) : null}
+          </div>
+        </>
       )}
       <InfoModal
         showInfoUserModal={showInfoUserModal}
