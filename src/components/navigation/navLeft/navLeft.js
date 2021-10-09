@@ -1,39 +1,39 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
-import { logIn } from "./../../../constants";
-import { NavLink } from "react-router-dom";
-import Login from "./../../account/login";
-import { connect } from "react-redux";
-import User from "./../../account/userModal";
-import { sideDrawerClosed } from "./../../../redux/actions";
+import React, { useState } from "react"
+import { Button } from "react-bootstrap"
+import { logIn } from "./../../../constants"
+import { NavLink } from "react-router-dom"
+import Login from "./../../account/login"
+import { connect } from "react-redux"
+import User from "./../../account/userModal"
+import { sideDrawerClosed } from "./../../../redux/actions"
 
 const NavLeft = (props) => {
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showUserModal, setShowUserModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false)
+  const [showUserModal, setShowUserModal] = useState(false)
 
   const showLoginModalHandler = () => {
-    props.dispatch(sideDrawerClosed());
-    setShowLoginModal(true);
-  };
+    props.dispatch(sideDrawerClosed())
+    setShowLoginModal(true)
+  }
   const hideLoginModalHandler = () => {
-    setShowLoginModal(false);
-  };
+    setShowLoginModal(false)
+  }
 
   const showUserModalHandler = () => {
-    props.dispatch(sideDrawerClosed());
-    setShowUserModal(true);
-  };
+    props.dispatch(sideDrawerClosed())
+    setShowUserModal(true)
+  }
   const hideUserModalHandler = () => {
-    setShowUserModal(false);
-  };
+    setShowUserModal(false)
+  }
 
-  let isLoginedUser = Object.keys(props.loginedUser).length > 0;
+  let isLoginedUser = Object.keys(props.loginedUser).length > 0
 
   return (
     <div className={[props.className, "navLeft"].join(" ")}>
       <NavLink to="/cart" className="order-2">
         <Button
-          variant="success"
+          variant="danger"
           onClick={() => props.dispatch(sideDrawerClosed())}
           className="cartButton"
         >
@@ -59,7 +59,7 @@ const NavLeft = (props) => {
         </Button>
       ) : (
         <Button
-          onClick={showLoginModalHandler}
+          // onClick={showLoginModalHandler}
           variant="light"
           className="ml-0 ml-md-2 mb-2 mb-md-0 order-1"
         >
@@ -79,11 +79,11 @@ const NavLeft = (props) => {
       <Login show={showLoginModal} hideHandle={hideLoginModalHandler} />
       <User show={showUserModal} hideHandle={hideUserModalHandler} />
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => ({
   loginedUser: state.loginedUser,
-});
+})
 
-export default connect(mapStateToProps)(NavLeft);
+export default connect(mapStateToProps)(NavLeft)

@@ -3,7 +3,7 @@
   .dices {
     padding: 30px 0;
     .col {
-      color: #4caf50;
+      color: #f107a3;
       padding-right: 0;
       padding-left: 0;
     }
@@ -42,20 +42,20 @@
   }
 }
 
-@media (max-width: 475px){
-  .footer{
-    .dices{
-      .dice-sixth{
+@media (max-width: 475px) {
+  .footer {
+    .dices {
+      .dice-sixth {
         display: none;
       }
     }
   }
 }
 
-@media (max-width: 395px){
-  .footer{
-    .dices{
-      .dice-fifth{
+@media (max-width: 395px) {
+  .footer {
+    .dices {
+      .dice-fifth {
         display: none;
       }
     }
