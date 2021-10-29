@@ -1,15 +1,15 @@
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom"
-import * as action from "./redux/actions"
-import Home from "./routes/home"
-import About from "./routes/about"
-import Cart from "./routes/cart"
-import Application from "./routes/application"
-import "./styles/index.scss"
-import { connect } from "react-redux"
-import { useEffect } from "react"
-import Layout from "./hoc/layout"
-import useFetch from "./hooks"
-import { users, comments, cartProducts, products } from "./api"
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import * as action from './redux/actions'
+import Home from './routes/home'
+import About from './routes/about'
+import Cart from './routes/cart'
+import Application from './routes/application'
+import './styles/index.scss'
+import { connect } from 'react-redux'
+import { useEffect } from 'react'
+import Layout from './hoc/layout'
+import useFetch from './hooks'
+import { users, comments, cartProducts, products } from './api'
 
 const App = (props) => {
   // const { data } = useFetch(
@@ -32,8 +32,8 @@ const App = (props) => {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          {/* <Route path="/about" component={About} />
-          <Route path="/cart" component ={Cart} />
+          <Route path="/about" component={About} />
+          {/* <Route path="/cart" component ={Cart} />
           <Route path="/app" component={Application} /> */}
         </Switch>
       </Layout>

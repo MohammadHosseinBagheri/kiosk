@@ -1,10 +1,14 @@
-import { Button } from "react-bootstrap"
-import { connect } from "react-redux"
-import { sideDrawerToggle } from "./../../../../redux/actions"
+import { Button } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { sideDrawerToggle } from './../../../../redux/actions'
 
 const DrawerToggle = (props) => {
   return (
-    <Button className="drawerToggle" variant="muted">
+    <Button
+      className="drawerToggle"
+      variant="muted"
+      onClick={() => props.dispatch(sideDrawerToggle())}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="40"
