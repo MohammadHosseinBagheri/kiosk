@@ -1,43 +1,43 @@
-import React, { useState } from "react";
-import { Modal, Button, Form, Col } from "react-bootstrap";
-import { connect } from "react-redux";
-import { addUser, recieveLoginedUser } from "./../../redux/actions";
-import axios from "axios";
+import React, { useState } from 'react'
+import { Modal, Button, Form, Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { addUser, recieveLoginedUser } from './../../redux/actions'
+import axios from 'axios'
 
 const RegisterUser = (props) => {
-  const [name, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmali] = useState("");
+  const [name, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [email, setEmali] = useState('')
 
   const usernameChangedHandler = (event) => {
-    setUsername(event.target.value);
-  };
+    setUsername(event.target.value)
+  }
 
   const passwordChangedHandler = (event) => {
-    setPassword(event.target.value);
-  };
+    setPassword(event.target.value)
+  }
 
   const emailChangedHandler = (event) => {
-    setEmali(event.target.value);
-  };
+    setEmali(event.target.value)
+  }
 
   const sendNewUser = () => {
     // post data
-    const user = { email, password, name };
+    const user = { email, password, name }
     axios
-      .post("https://still-headland-88471.herokuapp.com/api/signup", user)
+      .post('https://still-headland-88471.herokuapp.com/api/signup', user)
       .then((res) => {
         const loginedUser = {
           email: res.data.email,
           password: res.data.password,
           name: res.data.name,
           id: res.data._id,
-        };
-        props.dispatch(recieveLoginedUser(loginedUser));
-        props.hideRegisterModal();
+        }
+        props.dispatch(recieveLoginedUser(loginedUser))
+        props.hideRegisterModal()
       })
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => console.log(err))
+  }
 
   return (
     <Modal
@@ -77,14 +77,14 @@ const RegisterUser = (props) => {
             onClick={sendNewUser}
             variant="primary"
             className="w-100"
-            style={{ borderRadius: "100px" }}
+            style={{ borderRadius: '100px' }}
           >
             ثبت نام
           </Button>
         </Col>
       </Modal.Footer>
     </Modal>
-  );
-};
+  )
+}
 
-export default connect()(RegisterUser);
+export default connect()(RegisterUser)

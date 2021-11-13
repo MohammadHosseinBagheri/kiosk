@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { Button } from "react-bootstrap"
-import { logIn } from "./../../../constants"
-import { NavLink } from "react-router-dom"
-import Login from "./../../account/login"
-import { connect } from "react-redux"
-import User from "./../../account/userModal"
-import { sideDrawerClosed } from "./../../../redux/actions"
+import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
+import { logIn } from './../../../constants'
+import { NavLink } from 'react-router-dom'
+import Login from './../../account/login'
+import { connect } from 'react-redux'
+import User from './../../account/userModal'
+import { sideDrawerClosed } from './../../../redux/actions'
 
 const NavLeft = (props) => {
   const [showLoginModal, setShowLoginModal] = useState(false)
@@ -30,7 +30,7 @@ const NavLeft = (props) => {
   let isLoginedUser = Object.keys(props.loginedUser).length > 0
 
   return (
-    <div className={[props.className, "navLeft"].join(" ")}>
+    <div className={[props.className, 'navLeft'].join(' ')}>
       <NavLink to="/cart" className="order-2">
         <Button
           variant="danger"
@@ -59,7 +59,7 @@ const NavLeft = (props) => {
         </Button>
       ) : (
         <Button
-          // onClick={showLoginModalHandler}
+          onClick={showLoginModalHandler}
           variant="light"
           className="ml-0 ml-md-2 mb-2 mb-md-0 order-1"
         >

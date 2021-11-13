@@ -7,11 +7,12 @@ import ApplicationNewComment from './applicationNewComment'
 import * as action from './../../redux/actions'
 
 const ApplicationContentContainer = (props) => {
-  const { products, cartProducts } = props
+  // const { products, cartProducts } = props
+  const { cartProducts } = props
   console.log(cartProducts)
   const [app, setApp] = useState({})
-  const [countComment, setCountComment] = useState(4)
-  const [isMoreComment, setIsMoreComment] = useState(true)
+  // const [countComment, setCountComment] = useState(4)
+  // const [isMoreComment, setIsMoreComment] = useState(true)
 
   useEffect(() => {
     if (Object.keys(props.url).length !== 0) {
@@ -44,10 +45,10 @@ const ApplicationContentContainer = (props) => {
   //   }
   // }
 
-  const addToCart = () => {
-    props.dispatch(action.addToCart(app))
-    props.url.history.push('/cart')
-  }
+  // const addToCart = () => {
+  //   props.dispatch(action.addToCart(app))
+  //   props.url.history.push('/cart')
+  // }
 
   return (
     <>
@@ -82,10 +83,8 @@ const ApplicationContentContainer = (props) => {
                         دانلود با حجم {app.size}MB
                       </Button>
                     ) : (
-                      <Button onClick={addToCart} variant="success">
-                        {/* <Button variant="success"> */}
-                        افزودن به سبد خرید
-                      </Button>
+                      // <Button onClick={addToCart} variant="success">
+                      <Button variant="success">افزودن به سبد خرید</Button>
                     )}
                   </Col>
                 </Row>
