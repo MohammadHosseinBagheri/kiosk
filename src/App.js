@@ -33,8 +33,8 @@ const App = (props) => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
-          {/* <Route path="/cart" component ={Cart} />
-          <Route path="/app" component={Application} /> */}
+          <Route path="/app" component={Application} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </Layout>
     </Router>
