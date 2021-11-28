@@ -1,58 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { Container, Col, Row, Button } from "react-bootstrap";
-import CartProduct from "./cartProduct";
-import emptyCartImg from "./../../assets/icon/empty-cart.png";
-import InfoModal from "./infoModal";
-import OrdersHistory from "./ordersHistory";
-import axios from "axios";
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { Container, Col, Row, Button } from 'react-bootstrap'
+import CartProduct from './cartProduct'
+import emptyCartImg from './../../assets/icon/empty-cart.png'
+import InfoModal from './infoModal'
+import OrdersHistory from './ordersHistory'
+import axios from 'axios'
 
 const CartContentContainer = (props) => {
-  const { products, url, loginedUser } = props;
+  const { products, url, loginedUser } = props
 
-  const [isProduct, setIsProduct] = useState(false);
-  const [showInfoUserModal, setShowInfoUserModal] = useState(false);
-  const [showHistoryModal, setShowHistoryModal] = useState(false);
-  const [purchasedProducts, setPurchasedProducts] = useState([]);
+  const [isProduct, setIsProduct] = useState(false)
+  const [showInfoUserModal, setShowInfoUserModal] = useState(false)
+  const [showHistoryModal, setShowHistoryModal] = useState(false)
+  const [purchasedProducts, setPurchasedProducts] = useState([])
 
   const showHistoryModalHandler = () => {
-    setShowHistoryModal(true);
-  };
+    setShowHistoryModal(true)
+  }
 
   const hideHistoryModalHandler = () => {
-    setShowHistoryModal(false);
-  };
+    setShowHistoryModal(false)
+  }
 
-  let totalPrice = 0;
+  let totalPrice = 0
   products.map((product) => {
-    const old = totalPrice;
-    totalPrice = old + +product.price;
-  });
+    const old = totalPrice
+    totalPrice = old + +product.price
+  })
 
   const hideInfoUserModalHandler = () => {
-    setShowInfoUserModal(false);
-  };
+    setShowInfoUserModal(false)
+  }
   const showInfoUserModalHandler = () => {
-    setShowInfoUserModal(true);
-  };
+    setShowInfoUserModal(true)
+  }
 
   useEffect(() => {
-    products.length > 0 ? setIsProduct(true) : setIsProduct(false);
+    products.length > 0 ? setIsProduct(true) : setIsProduct(false)
     const api =
-      "https://still-headland-88471.herokuapp.com/api/peyment?id=" +
-      loginedUser.id;
+      'https://still-headland-88471.herokuapp.com/api/peyment?id=' +
+      loginedUser.id
     axios
       .get(api)
       .then((res) => {
-        setPurchasedProducts(res.data);
-        console.log(res);
+        setPurchasedProducts(res.data)
+        console.log(res)
       })
-      .catch((err) => console.log(err));
-  }, [products.length, showHistoryModal]);
+      .catch((err) => console.log(err))
+  }, [products.length, showHistoryModal])
   const goToHome = () => {
-    url.history.push("/");
-  };
-  let isLoginedUser = Object.keys(loginedUser).length > 0;
+    url.history.push('/')
+  }
+  let isLoginedUser = Object.keys(loginedUser).length > 0
 
   return (
     <div className="cart pb-5 mb-5">
@@ -62,7 +62,7 @@ const CartContentContainer = (props) => {
             <Row>
               <Col sm={12} md={8}>
                 {products.map((product) => {
-                  return <CartProduct product={product} />;
+                  return <CartProduct product={product} />
                 })}
               </Col>
               {isLoginedUser ? (
@@ -91,7 +91,7 @@ const CartContentContainer = (props) => {
                     <Button
                       onClick={showInfoUserModalHandler}
                       block
-                      style={{ borderRadius: "0" }}
+                      style={{ borderRadius: '0' }}
                       variant="info"
                     >
                       ثبت سفارش
@@ -102,7 +102,7 @@ const CartContentContainer = (props) => {
                       <Button
                         variant="secondary"
                         block
-                        style={{ borderRadius: "0" }}
+                        style={{ borderRadius: '0' }}
                         onClick={showHistoryModalHandler}
                       >
                         تاریخچه خریدها
@@ -172,13 +172,13 @@ const CartContentContainer = (props) => {
         />
       ) : null}
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => ({
   products: state.cartProducts,
   url: state.cartUrlParams,
   loginedUser: state.loginedUser,
-});
+})
 
-export default connect(mapStateToProps)(CartContentContainer);
+export default connect(mapStateToProps)(CartContentContainer)

@@ -45,10 +45,10 @@ const ApplicationContentContainer = (props) => {
   //   }
   // }
 
-  // const addToCart = () => {
-  //   props.dispatch(action.addToCart(app))
-  //   props.url.history.push('/cart')
-  // }
+  const addToCart = () => {
+    props.dispatch(action.addToCart(app))
+    props.url.history.push('/cart')
+  }
 
   return (
     <>
@@ -83,8 +83,9 @@ const ApplicationContentContainer = (props) => {
                         دانلود با حجم {app.size}MB
                       </Button>
                     ) : (
-                      // <Button onClick={addToCart} variant="success">
-                      <Button variant="success">افزودن به سبد خرید</Button>
+                      <Button onClick={addToCart} variant="success">
+                        افزودن به سبد خرید
+                      </Button>
                     )}
                   </Col>
                 </Row>

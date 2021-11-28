@@ -34,7 +34,7 @@ const App = (props) => {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/app" component={Application} />
-          {/* <Route path="/cart" component={Cart} /> */}
+          <Route path="/cart" component={Cart} />
         </Switch>
       </Layout>
     </Router>
