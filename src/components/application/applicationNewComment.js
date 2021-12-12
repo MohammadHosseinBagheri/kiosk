@@ -37,8 +37,9 @@ const ApplicationNewComment = (props) => {
       _id: props.id,
     };
 
+    // "https://still-headland-88471.herokuapp.com/api/applications/add-comment",
     axios.post(
-      "https://still-headland-88471.herokuapp.com/api/applications/add-comment",
+      "http://localhost:3001/api/applications/add-comment",
       commentUser
     );
   };

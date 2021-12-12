@@ -13,7 +13,8 @@ import { users, comments, cartProducts } from "./api";
 
 const App = (props) => {
   const { data } = useFetch(
-    "https://still-headland-88471.herokuapp.com/api/applications/get"
+    // "https://still-headland-88471.herokuapp.com/api/applications/get"
+    "http://localhost:3001/api/applications/get"
   );
 
   useEffect(() => {

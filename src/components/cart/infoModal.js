@@ -45,9 +45,10 @@ const InfoModal = (props) => {
       product: props.products,
       price: props.totalPrice,
     };
+    // "https://still-headland-88471.herokuapp.com/api/peyment",
     axios
       .post(
-        "https://still-headland-88471.herokuapp.com/api/peyment",
+        "http://localhost:3001/api/peyment",
         factorInfo
       )
       .then((res) => {

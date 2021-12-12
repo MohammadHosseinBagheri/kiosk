@@ -22,10 +22,11 @@ const RegisterUser = (props) => {
   };
 
   const sendNewUser = () => {
+    // .post("https://still-headland-88471.herokuapp.com/api/signup", user)
     // post data
     const user = { email, password, name };
     axios
-      .post("https://still-headland-88471.herokuapp.com/api/signup", user)
+      .post("http://localhost:3001/api/signup", user)
       .then((res) => {
         const loginedUser = {
           email: res.data.email,
